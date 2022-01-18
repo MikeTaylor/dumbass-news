@@ -4,6 +4,12 @@ import "os"
 import "io/ioutil"
 import "encoding/json"
 
+type Logging struct {
+	Categories string `json:"categories"`
+	Prefix     string `json:"prefix"`
+	Timestamp  bool   `json:"timestamp"`
+}
+
 type Listen struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`
@@ -22,6 +28,7 @@ type Transformation struct {
 }
 
 type Config struct {
+	Logging         Logging                   `json:"logging"`
 	Listen          Listen                    `json:"listen"`
 	Channels        map[string]Channel        `json:"channels"`
 	Transformations map[string]Transformation `json:"transformations"`

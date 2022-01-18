@@ -1,4 +1,9 @@
 {
+  "logging": {
+    "categories": "config,start",
+    "prefix": "--",
+    "timestamp": true
+  },
   "listen": {
     "host": "@",
     "port": 12368
