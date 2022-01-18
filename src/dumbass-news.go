@@ -10,7 +10,7 @@ func main() {
 	}
 
 	var file = os.Args[1]
-	var config *Config;
+	var config *Config
 	config, err := ReadConfig(file)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Cannot read config:", err)
