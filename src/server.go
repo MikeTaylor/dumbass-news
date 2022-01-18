@@ -21,7 +21,7 @@ func MakeHTTPServer(config *Config, logger *Logger) *HTTPServer {
 	return &server
 }
 
-func (server *HTTPServer) ListenAndServe(hostspec string) error {
+func (server *HTTPServer) launch(hostspec string) error {
 	server.server.Addr = hostspec
 	server.logger.log("listen", "listening on", hostspec)
 	error := server.server.ListenAndServe()

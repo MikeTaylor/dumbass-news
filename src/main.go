@@ -21,7 +21,7 @@ func main() {
 	logger.log("config", fmt.Sprintf("%+v", config))
 
 	server := MakeHTTPServer(config, logger)
-	err = server.ListenAndServe(config.Listen.Host + ":" + fmt.Sprint(config.Listen.Port))
+	err = server.launch(config.Listen.Host + ":" + fmt.Sprint(config.Listen.Port))
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Cannot create HTTP server:", err)
 		os.Exit(3)
