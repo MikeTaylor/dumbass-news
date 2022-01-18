@@ -1,5 +1,5 @@
-dumbass-news: dumbass-news.go
-	go build dumbass-news.go
+dumbass-news: dumbass-news.go config.go
+	go build -o dumbass-news *.go
 
 run: dumbass-news
 	./dumbass-news ../etc/config.json
