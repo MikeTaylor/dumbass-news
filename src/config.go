@@ -4,23 +4,23 @@ import "os"
 import "io/ioutil"
 import "encoding/json"
 
-type Logging struct {
+type LoggingConfig struct {
 	Categories string `json:"categories"`
 	Prefix     string `json:"prefix"`
 	Timestamp  bool   `json:"timestamp"`
 }
 
-type Listen struct {
+type ListenConfig struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`
 }
 
-type Channel struct {
+type ChannelConfig struct {
 	ChannelType string `json:"type"`
 	Url         string `json:"url"`
 }
 
-type Transformation struct {
+type TransformationConfig struct {
 	TransformationType string `json:"type"`
 	Text               string `json:"text"`
 	Position           string `json:"position"`
@@ -28,10 +28,10 @@ type Transformation struct {
 }
 
 type Config struct {
-	Logging         Logging                   `json:"logging"`
-	Listen          Listen                    `json:"listen"`
-	Channels        map[string]Channel        `json:"channels"`
-	Transformations map[string]Transformation `json:"transformations"`
+	Logging         LoggingConfig                   `json:"logging"`
+	Listen          ListenConfig                    `json:"listen"`
+	Channels        map[string]ChannelConfig        `json:"channels"`
+	Transformations map[string]TransformationConfig `json:"transformations"`
 }
 
 func ReadConfig(name string) (*Config, error) {
