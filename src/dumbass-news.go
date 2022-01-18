@@ -17,5 +17,12 @@ func main() {
 		os.Exit(2)
 	}
 
+	server, err := MakeHTTPServer(config)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Cannot create HTTP server:", err)
+		os.Exit(3)
+	}
+
 	fmt.Printf("%+v\n", config)
+	server.ListenAndServe(":8090", nil)
 }
