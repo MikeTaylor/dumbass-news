@@ -1,4 +1,4 @@
-dumbass-news: dumbass-news.go config.go
+dumbass-news: dumbass-news.go config.go logger.go server.go
 	go build -o dumbass-news *.go
 
 run: dumbass-news

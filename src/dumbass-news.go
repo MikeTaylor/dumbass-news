@@ -17,6 +17,9 @@ func main() {
 		os.Exit(2)
 	}
 
+	loggingConfig := config.Logging;
+	logger := MakeLogger(loggingConfig)
+	fmt.Println("Made logger:", logger)
 	server, err := MakeHTTPServer(config)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Cannot create HTTP server:", err)
