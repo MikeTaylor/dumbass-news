@@ -1,0 +1,20 @@
+{
+  "listen": {
+    "host": "@",
+    "port": 12368
+  },
+  "channels": {
+    "bbc": {
+      "type": "rss",
+      "url": "https://feeds.bbci.co.uk/news/rss.xml"
+    }
+  },
+  "transformations": {
+    "dumbass": {
+      "type": "insert",
+      "text": "dumbass",
+      "position": "before",
+      "anchor": "noun"
+    }
+  }
+}
