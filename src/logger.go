@@ -1,3 +1,12 @@
+// logger is derived from the JavaScript package categorical-logger,
+// which can be found at
+// https://github.com/openlibraryenvironment/categorical-logger
+// The present version of logger.go falls short of its ancestor in the
+// following respects:
+// 1. It does not support logging functional arguments
+// 2. It does not have the the setter methods
+// 3. It is not documented
+//
 package main
 
 import "strings"
