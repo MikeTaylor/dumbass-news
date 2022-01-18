@@ -5,7 +5,7 @@ run: dumbass-news
 	./dumbass-news ../etc/config.json
 
 lint:
-	go vet main.go
+	go vet *.go
 
 clean:
 	rm -f dumbass-news
