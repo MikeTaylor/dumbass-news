@@ -27,7 +27,7 @@ type Config struct {
 	Transformations map[string]Transformation `json:"transformations"`
 }
 
-func ReadConfig(name string) (interface{}, error) {
+func ReadConfig(name string) (*Config, error) {
 	jsonFile, err := os.Open(name)
 	if err != nil {
 		return nil, err
@@ -37,5 +37,5 @@ func ReadConfig(name string) (interface{}, error) {
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var config Config
 	json.Unmarshal(byteValue, &config)
-	return config, nil
+	return &config, nil
 }
