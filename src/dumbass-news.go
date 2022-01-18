@@ -17,7 +17,7 @@ func main() {
 		os.Exit(2)
 	}
 
-	loggingConfig := config.Logging;
+	loggingConfig := config.Logging
 	logger := MakeLogger(loggingConfig)
 	logger.log("config", fmt.Sprintf("%+v", config))
 
