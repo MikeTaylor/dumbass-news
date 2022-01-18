@@ -1,11 +1,11 @@
 {
   "logging": {
-    "categories": "config,start",
+    "categories": "config,listen",
     "prefix": "--",
     "timestamp": true
   },
   "listen": {
-    "host": "@",
+    "host": "localhost",
     "port": 12368
   },
   "channels": {

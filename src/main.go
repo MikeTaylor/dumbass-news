@@ -17,15 +17,13 @@ func main() {
 		os.Exit(2)
 	}
 
-	loggingConfig := config.Logging
-	logger := MakeLogger(loggingConfig)
+	logger := MakeLogger(config.Logging)
 	logger.log("config", fmt.Sprintf("%+v", config))
 
-	server, err := MakeHTTPServer(config)
+	server := MakeHTTPServer(config, logger)
+	err = server.ListenAndServe(config.Listen.Host + ":" + fmt.Sprint(config.Listen.Port))
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Cannot create HTTP server:", err)
 		os.Exit(3)
 	}
-
-	server.ListenAndServe(":8090", nil)
 }
