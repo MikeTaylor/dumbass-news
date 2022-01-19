@@ -39,14 +39,14 @@ func handler(w http.ResponseWriter, req *http.Request, config *Config, logger *L
 	}
 }
 
-type HTTPServer struct {
+type NewsServer struct {
 	config *Config
 	logger *Logger
 	server http.Server
 }
 
-func MakeHTTPServer(config *Config, logger *Logger) *HTTPServer {
-	var server = HTTPServer{
+func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
+	var server = NewsServer{
 		config: config,
 		logger: logger,
 		server: http.Server{
@@ -61,7 +61,7 @@ func MakeHTTPServer(config *Config, logger *Logger) *HTTPServer {
 	return &server
 }
 
-func (server *HTTPServer) launch(hostspec string) error {
+func (server *NewsServer) launch(hostspec string) error {
 	server.server.Addr = hostspec
 	server.logger.log("listen", "listening on", hostspec)
 	error := server.server.ListenAndServe()
