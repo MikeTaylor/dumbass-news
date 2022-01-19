@@ -48,5 +48,5 @@ func (l *Logger) log(cat string, args ...string) {
 	if l.timestamp {
 		s += time.Now().Format(time.RFC3339) + " "
 	}
-	fmt.Fprintln(os.Stderr, s+"("+cat+")", fmt.Sprintf("%v", args))
+	fmt.Fprintln(os.Stderr, s+"("+cat+")", strings.Join(args, " "))
 }
