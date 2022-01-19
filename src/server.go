@@ -6,6 +6,19 @@ import "strings"
 import "time"
 
 func showChannel(w http.ResponseWriter, config *Config, logger *Logger, channel string, transformation string) {
+	channelConfig, ok := config.Channels[channel]
+	if !ok {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, "unknown channel:", channel)
+		return
+	}
+	logger.log("config", fmt.Sprintf("%+v", channelConfig))
+	ctype := channelConfig.ChannelType
+	if ctype != "rss" {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, "unsupported channel-type:", ctype)
+		return
+	}
 	fmt.Fprintln(w, "channel:", channel, "- transformation:", transformation)
 }
 
