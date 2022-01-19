@@ -1,6 +1,6 @@
 {
   "logging": {
-    "categories": "config,listen,path",
+    "categories": "config,listen,path,parse",
     "prefix": "--",
     "timestamp": true
   },
@@ -9,8 +9,16 @@
     "port": 12368
   },
   "channels": {
-    "dummy": {
+    "badtype": {
       "type": "scraper"
+    },
+    "nohost": {
+      "type": "rss",
+      "url": "https://nosuchfeeds.bbci.co.uk/news/rss.xml"
+    },
+    "nofile": {
+      "type": "rss",
+      "url": "https://feeds.bbci.co.uk/news/nosuchrss.xml"
     },
     "bbc": {
       "type": "rss",

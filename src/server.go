@@ -6,15 +6,6 @@ import "strings"
 import "time"
 import "io/ioutil"
 
-func MakeRssEntries(body []byte) []Entry {
-	return nil
-}
-
-type Entry struct {
-	Headline string
-	Link string
-}
-
 func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
 	channelConfig, ok := server.config.Channels[channel]
 	if !ok {
@@ -24,26 +15,36 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 	}
 	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
 
-	resp, err := server.client.Get(channelConfig.Url)
-	if err != nil {
-		// XXX do better
-		fmt.Printf("Error %s", err)
-		return
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	server.logger.log("rss", fmt.Sprintf("%s", body))
-
-	var entries []Entry
 	ctype := channelConfig.ChannelType
-	if ctype == "rss" {
-		entries = MakeRssEntries(body)
-	} else {
+	var parser EntryParser
+	switch ctype {
+	case "rss":
+		parser = RssEntryParser
+	// more cases here
+	default:
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintln(w, "unsupported channel-type:", ctype)
 		return
 	}
 
+	resp, err := server.client.Get(channelConfig.Url)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "cannot fetch %s: %v", channelConfig.Url, err)
+		return
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "fetch %s failed with status %s", channelConfig.Url, resp.Status)
+		return
+	}
+
+	body, err := ioutil.ReadAll(resp.Body)
+	server.logger.log("body", fmt.Sprintf("%s", body))
+
+	var entries []Entry = parser.parse(body)
 	fmt.Fprintf(w, "channel '%s', transformation '%s': %v", channel, transformation, entries)
 }
 
