@@ -1,6 +1,6 @@
 {
   "logging": {
-    "categories": "config,listen",
+    "categories": "config,listen,path",
     "prefix": "--",
     "timestamp": true
   },

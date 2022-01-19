@@ -5,20 +5,21 @@ import "fmt"
 import "strings"
 import "time"
 
-func showChannel(w http.ResponseWriter, channel string, transformation string) {
+func showChannel(w http.ResponseWriter, config *Config, logger *Logger, channel string, transformation string) {
 	fmt.Fprintln(w, "channel:", channel, "- transformation:", transformation)
 }
 
-func handler(w http.ResponseWriter, req *http.Request) {
+func handler(w http.ResponseWriter, req *http.Request, config *Config, logger *Logger) {
 	raw := strings.Split(req.URL.Path, "/")
 	chunks := raw[1:] // Skip initial empty component
+	logger.log("path", strings.Join(chunks, "/"))
 
 	if len(chunks) == 1 && chunks[0] == "" {
 		// Home page
 		fmt.Fprintln(w, `<a href="/bbc/dumbass">Example</a>`)
 	} else if len(chunks) == 2 {
 		// Transformed channel
-		showChannel(w, chunks[0], chunks[1])
+		showChannel(w, config, logger, chunks[0], chunks[1])
 	} else {
 		// Unrecognized
 		w.WriteHeader(http.StatusNotFound)
@@ -42,7 +43,7 @@ func MakeHTTPServer(config *Config, logger *Logger) *HTTPServer {
 	}
 
 	// XXX I would prefer this to be registered only to server.server
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { handler(w, r, config, logger) })
 
 	return &server
 }
