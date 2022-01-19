@@ -5,12 +5,6 @@ import "fmt"
 import "strings"
 import "time"
 
-type HTTPServer struct {
-	config *Config
-	logger *Logger
-	server http.Server
-}
-
 func handler(w http.ResponseWriter, req *http.Request) {
 	raw := strings.Split(req.URL.Path, "/")
 	chunks := raw[1:] // Skip initial empty component
@@ -25,6 +19,12 @@ func handler(w http.ResponseWriter, req *http.Request) {
 		// Unrecognized
 		w.WriteHeader(http.StatusNotFound)
 	}
+}
+
+type HTTPServer struct {
+	config *Config
+	logger *Logger
+	server http.Server
 }
 
 func MakeHTTPServer(config *Config, logger *Logger) *HTTPServer {
