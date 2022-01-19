@@ -43,6 +43,7 @@ type NewsServer struct {
 	config *Config
 	logger *Logger
 	server http.Server
+	client http.Client
 }
 
 func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
@@ -52,6 +53,9 @@ func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
 		server: http.Server{
 			ReadTimeout:  30 * time.Second,
 			WriteTimeout: 30 * time.Second,
+		},
+		client: http.Client{
+			Timeout: 10 * time.Second,
 		},
 	}
 
