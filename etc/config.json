@@ -9,6 +9,9 @@
     "port": 12368
   },
   "channels": {
+    "dummy": {
+      "type": "scraper"
+    },
     "bbc": {
       "type": "rss",
       "url": "https://feeds.bbci.co.uk/news/rss.xml"
