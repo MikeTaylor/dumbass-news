@@ -43,6 +43,9 @@ func ReadConfig(name string) (*Config, error) {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var config Config
-	json.Unmarshal(byteValue, &config)
+	error := json.Unmarshal(byteValue, &config)
+	if error != nil {
+		return nil, error
+	}
 	return &config, nil
 }
