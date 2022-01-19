@@ -20,10 +20,22 @@ type Logger struct {
 	timestamp  bool
 }
 
+func getCategories(config LoggingConfig) string {
+	res := os.Getenv("LOGGING_CATEGORIES")
+	if res != "" {
+		return res
+	}
+	res = os.Getenv("LOGCAT")
+	if res != "" {
+		return res
+	}
+	return config.Categories
+}
+
 func MakeLogger(config LoggingConfig) *Logger {
 	var logger Logger
 
-	logger.categories = config.Categories
+	logger.categories = getCategories(config)
 	logger.prefix = config.Prefix
 	logger.timestamp = config.Timestamp
 
