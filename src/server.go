@@ -1,12 +1,30 @@
 package main
 
 import "net/http"
+import "fmt"
+import "strings"
 import "time"
 
 type HTTPServer struct {
 	config *Config
 	logger *Logger
 	server http.Server
+}
+
+func handler(w http.ResponseWriter, req *http.Request) {
+	raw := strings.Split(req.URL.Path, "/")
+	chunks := raw[1:] // Skip initial empty component
+
+	if len(chunks) == 1 && chunks[0] == "" {
+		// Home page
+		fmt.Fprintln(w, `<a href="/bbc/dumbass">Example</a>`)
+	} else if len(chunks) == 2 {
+		// Transformed channel
+		fmt.Fprintln(w, "channel", chunks[0], "transformation", chunks[1])
+	} else {
+		// Unrecognized
+		w.WriteHeader(http.StatusNotFound)
+	}
 }
 
 func MakeHTTPServer(config *Config, logger *Logger) *HTTPServer {
@@ -18,6 +36,10 @@ func MakeHTTPServer(config *Config, logger *Logger) *HTTPServer {
 			WriteTimeout: 30 * time.Second,
 		},
 	}
+
+	// XXX I would prefer this to be registered only to server.server
+	http.HandleFunc("/", handler)
+
 	return &server
 }
 
