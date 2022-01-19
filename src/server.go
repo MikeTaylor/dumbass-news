@@ -12,13 +12,15 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 		fmt.Fprintln(w, "unknown channel:", channel)
 		return
 	}
-	server.logger.log("config", fmt.Sprintf("%+v", channelConfig))
+	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
+
 	ctype := channelConfig.ChannelType
 	if ctype != "rss" {
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintln(w, "unsupported channel-type:", ctype)
 		return
 	}
+		
 	fmt.Fprintln(w, "channel:", channel, "- transformation:", transformation)
 }
 
