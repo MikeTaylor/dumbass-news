@@ -5,6 +5,10 @@ import "fmt"
 import "strings"
 import "time"
 
+func showChannel(w http.ResponseWriter, channel string, transformation string) {
+	fmt.Fprintln(w, "channel:", channel, "- transformation:", transformation)
+}
+
 func handler(w http.ResponseWriter, req *http.Request) {
 	raw := strings.Split(req.URL.Path, "/")
 	chunks := raw[1:] // Skip initial empty component
@@ -14,7 +18,7 @@ func handler(w http.ResponseWriter, req *http.Request) {
 		fmt.Fprintln(w, `<a href="/bbc/dumbass">Example</a>`)
 	} else if len(chunks) == 2 {
 		// Transformed channel
-		fmt.Fprintln(w, "channel", chunks[0], "transformation", chunks[1])
+		showChannel(w, chunks[0], chunks[1])
 	} else {
 		// Unrecognized
 		w.WriteHeader(http.StatusNotFound)
