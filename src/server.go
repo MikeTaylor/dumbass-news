@@ -101,7 +101,7 @@ func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
 func (server *NewsServer) launch(hostspec string) error {
 	server.server.Addr = hostspec
 	server.logger.log("listen", "listening on", hostspec)
-	error := server.server.ListenAndServe()
+	err := server.server.ListenAndServe()
 	server.logger.log("listen", "finished listening on", hostspec)
-	return error
+	return err
 }
