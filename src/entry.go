@@ -7,5 +7,5 @@ type Entry struct {
 
 // XXX This feels like it wants to be an interface
 type EntryParser struct {
-	parse func(body []byte) []Entry
+	parse func(body []byte) ([]Entry, error)
 }

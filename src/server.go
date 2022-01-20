@@ -44,7 +44,14 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 	body, err := ioutil.ReadAll(resp.Body)
 	server.logger.log("body", fmt.Sprintf("%s", body))
 
-	var entries []Entry = parser.parse(body)
+	var entries []Entry;
+	entries, err = parser.parse(body)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "parsing source %s failed: %v", channelConfig.Url, err)
+		return
+	}
+
 	fmt.Fprintf(w, "channel '%s', transformation '%s': %v", channel, transformation, entries)
 }
 
