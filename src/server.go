@@ -6,6 +6,10 @@ import "strings"
 import "time"
 import "io/ioutil"
 
+func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, transformation string, entries []Entry) {
+	fmt.Fprintf(w, "channel '%s', transformation '%s': %v", channel, transformation, entries)
+}
+
 func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
 	channelConfig, ok := server.config.Channels[channel]
 	if !ok {
@@ -52,7 +56,9 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 		return
 	}
 
-	fmt.Fprintf(w, "channel '%s', transformation '%s': %v", channel, transformation, entries)
+	// XXX transform data
+
+	renderHTML(w, server, channel, transformation, entries)
 }
 
 func handler(w http.ResponseWriter, req *http.Request, server *NewsServer) {
