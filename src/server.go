@@ -17,13 +17,7 @@ func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, trans
 	fmt.Fprintf(w, "</ul>\n")
 }
 
-func getData(server *NewsServer, channel string) ([]Entry, *httpError) {
-	channelConfig, ok := server.config.Channels[channel]
-	if !ok {
-		return nil, MakeHttpError(http.StatusBadRequest, fmt.Sprintln("unknown channel:", channel))
-	}
-	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
-
+func getData(server *NewsServer, channelConfig ChannelConfig) ([]Entry, *httpError) {
 	ctype := channelConfig.ChannelType
 	var parser EntryParser
 	switch ctype {
@@ -56,14 +50,33 @@ func getData(server *NewsServer, channel string) ([]Entry, *httpError) {
 	return entries, nil
 }
 
+func transformData(server *NewsServer, channelConfig ChannelConfig) *httpError {
+	// XXX do it!
+	return nil
+}
+
 func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
-	entries, err := getData(server, channel)
-	if entries == nil {
-		w.WriteHeader(err.status)
-		fmt.Fprint(w, err.message)
+	channelConfig, ok := server.config.Channels[channel]
+	if !ok {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, "unknown channel:", channel)
 		return
 	}
-	// XXX transform data
+	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
+
+	entries, err := getData(server, channelConfig)
+	if err != nil {
+		w.WriteHeader(err.status)
+		fmt.Fprintln(w, err.message)
+		return
+	}
+
+	err = transformData(server, channelConfig)
+	if err != nil {
+		w.WriteHeader(err.status)
+		fmt.Fprintln(w, err.message)
+		return
+	}
 
 	renderHTML(w, server, channel, transformation, entries)
 }
