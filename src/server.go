@@ -93,6 +93,9 @@ type NewsServer struct {
 }
 
 func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
+	tr := &http.Transport{}
+	tr.RegisterProtocol("file", http.NewFileTransport(http.Dir("..")))
+
 	var server = NewsServer{
 		config: config,
 		logger: logger,
@@ -102,6 +105,7 @@ func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
 		},
 		client: http.Client{
 			Timeout: 10 * time.Second,
+			Transport: tr,
 		},
 	}
 

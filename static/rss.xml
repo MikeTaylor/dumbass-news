@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet title="XSL_formatting" type="text/xsl" href="/shared/bsp/xsl/rss/nolsol.xsl"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[BBC News - Home]]></title>
+        <description><![CDATA[BBC News - Home]]></description>
+        <link>https://www.bbc.co.uk/news/</link>
+        <image>
+            <url>https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif</url>
+            <title>BBC News - Home</title>
+            <link>https://www.bbc.co.uk/news/</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Thu, 20 Jan 2022 15:06:49 GMT</lastBuildDate>
+        <copyright><![CDATA[Copyright: (C) British Broadcasting Corporation, see http://news.bbc.co.uk/2/hi/help/rss/4498287.stm for terms and conditions of reuse.]]></copyright>
+        <language><![CDATA[en-gb]]></language>
+        <ttl>15</ttl>
+        <item>
+            <title><![CDATA[Boris Johnson: I've seen no evidence of plotters being blackmailed]]></title>
+            <description><![CDATA[The PM rejects the claims of a Tory MP, who says rebels face intimidation from ministers.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-politics-60068612?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-politics-60068612</guid>
+            <pubDate>Thu, 20 Jan 2022 15:02:20 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Bankers told to come back to desks as restrictions end]]></title>
+            <description><![CDATA[Standard Chartered and HSBC ask staff to come back as business groups welcome end of home working.]]></description>
+            <link>https://www.bbc.co.uk/news/business-60065207?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/business-60065207</guid>
+            <pubDate>Thu, 20 Jan 2022 15:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Former Pope Benedict failed to act over abuse, new report finds]]></title>
+            <description><![CDATA[Benedict XVI is incriminated in a report into child sex abuse in Munich in the 70s and 80s.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-60070132?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-60070132</guid>
+            <pubDate>Thu, 20 Jan 2022 13:42:16 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Teenage pilot Zara Rutherford completes solo round-world record]]></title>
+            <description><![CDATA[Zara Rutherford endured extreme conditions during a trip that took two months longer than planned.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-england-hampshire-59899980?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-england-hampshire-59899980</guid>
+            <pubDate>Thu, 20 Jan 2022 13:37:38 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Australian Open 2022: Emma Raducanu beaten in three sets by Danka Kovinic]]></title>
+            <description><![CDATA[Emma Raducanu says she was warned by her team not to play in the Australian Open second round because of a blister that hampered her in the defeat by Danka Kovinic.]]></description>
+            <link>https://www.bbc.co.uk/sport/tennis/60065277?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/tennis/60065277</guid>
+            <pubDate>Thu, 20 Jan 2022 14:06:48 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Tommy Robinson pursued by creditors for an estimated £2m]]></title>
+            <description><![CDATA[People owed money by the English Defence League founder have appointed an independent insolvency expert.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-england-manchester-60052754?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-england-manchester-60052754</guid>
+            <pubDate>Thu, 20 Jan 2022 08:36:15 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ukraine tension: Biden says he thinks Putin will 'move in']]></title>
+            <description><![CDATA[The US president warns the Russian leader against invading, but hints at splits among Western allies.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-60061300?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-60061300</guid>
+            <pubDate>Thu, 20 Jan 2022 11:56:15 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Texas synagogue: Brother urged hostage-taker to surrender]]></title>
+            <description><![CDATA[Two men are arrested in Birmingham and Manchester as part of the investigation into the attack.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-60063148?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-60063148</guid>
+            <pubDate>Thu, 20 Jan 2022 12:41:44 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Freda and Ken Walker: Murder arrest after couple in 80s attacked at home]]></title>
+            <description><![CDATA[A man is held on suspicion of murdering Freda Walker, 86, and attempting to murder her husband Ken.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-england-derbyshire-60068158?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-england-derbyshire-60068158</guid>
+            <pubDate>Thu, 20 Jan 2022 14:33:30 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Tonga: First foreign aid planes arrive bearing crucial supplies]]></title>
+            <description><![CDATA[It comes after the Pacific nation was left devastated by a volcanic eruption and subsequent tsunami.]]></description>
+            <link>https://www.bbc.co.uk/news/world-asia-60063732?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-asia-60063732</guid>
+            <pubDate>Thu, 20 Jan 2022 08:58:38 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dozens of blocks still have Grenfell-type cladding]]></title>
+            <description><![CDATA[The flammable panels have been blamed for the rapid spread of the 2017 fire, which led to 72 deaths.]]></description>
+            <link>https://www.bbc.co.uk/news/business-60069433?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/business-60069433</guid>
+            <pubDate>Thu, 20 Jan 2022 14:54:06 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Criminal prosecution delays hit record 708 days]]></title>
+            <description><![CDATA[Figures show the average time to deal with a crime rose by 15%, adding to a massive backlog.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-60071691?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-60071691</guid>
+            <pubDate>Thu, 20 Jan 2022 13:37:48 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[South Georgia: The museum at the end of the world reopens for business]]></title>
+            <description><![CDATA[On a British island at the edge of the Antarctic is one of the most remote tourist spots in the world.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-60010608?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-60010608</guid>
+            <pubDate>Thu, 20 Jan 2022 00:05:55 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[NHS dentists: Patient forced to turn to DIY dentistry over waiting times]]></title>
+            <description><![CDATA[Patient Sharon Grey turned to DIY dentistry after waiting for treatment for more than a year.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-60065967?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-60065967</guid>
+            <pubDate>Thu, 20 Jan 2022 12:56:34 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[We are praying for heavy rain - Tonga resident]]></title>
+            <description><![CDATA[Speaking from Tonga's capital, Nuku'alofa, Marian Kupu gives a firsthand account of the moment the undersea volcano erupted.]]></description>
+            <link>https://www.bbc.co.uk/news/60065407?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/60065407</guid>
+            <pubDate>Thu, 20 Jan 2022 09:06:17 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dog rescue: Reggie saved after falling down 10ft crevice]]></title>
+            <description><![CDATA[Reggie "came out a new dog" after the 34-hour mountain rescue.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-wales-59967511?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-wales-59967511</guid>
+            <pubDate>Thu, 20 Jan 2022 13:41:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[After Life 3: How TikTok took a Ricky Gervais fan to Netflix]]></title>
+            <description><![CDATA[Cole Anderson-James was cast by his comedy hero after impersonating him on social media.]]></description>
+            <link>https://www.bbc.co.uk/news/newsbeat-60071367?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/newsbeat-60071367</guid>
+            <pubDate>Thu, 20 Jan 2022 14:48:24 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[A whirlwind dash through Biden's first year in office]]></title>
+            <description><![CDATA[How did the US president do in his first 12 months in the White House?]]></description>
+            <link>https://www.bbc.co.uk/news/world-us-canada-60060913?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-us-canada-60060913</guid>
+            <pubDate>Thu, 20 Jan 2022 03:15:07 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Giant pristine coral reef discovered off Tahiti]]></title>
+            <description><![CDATA[Marine explorers find a "pristine" 3km coral reef at depths of 30m off the coast of Tahiti.]]></description>
+            <link>https://www.bbc.co.uk/news/science-environment-60047368?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/science-environment-60047368</guid>
+            <pubDate>Thu, 20 Jan 2022 05:03:36 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What high inflation means - in 90 seconds]]></title>
+            <description><![CDATA[The BBC's consumer affairs correspondent, Colletta Smith, breaks it down.]]></description>
+            <link>https://www.bbc.co.uk/news/business-60058675?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/business-60058675</guid>
+            <pubDate>Wed, 19 Jan 2022 17:08:28 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Covid: Did Pfizer's boss cast doubt on his own vaccine?]]></title>
+            <description><![CDATA[Inaccurate posts about the Pfizer vaccine's protection against Omicron took the drug company's boss out of context.]]></description>
+            <link>https://www.bbc.co.uk/news/59994912?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/59994912</guid>
+            <pubDate>Thu, 20 Jan 2022 00:06:51 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Joe Biden one year on: Has the United States become ungovernable?]]></title>
+            <description><![CDATA[A president who promised to unite the country is unable to bring his own party together.]]></description>
+            <link>https://www.bbc.co.uk/news/world-us-canada-60036911?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-us-canada-60036911</guid>
+            <pubDate>Wed, 19 Jan 2022 13:51:50 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Tonga: Zero-Covid island nation fears aid could bring in virus]]></title>
+            <description><![CDATA[Efforts are being made to deliver humanitarian supplies with minimum risk of infection.]]></description>
+            <link>https://www.bbc.co.uk/news/60066470?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/60066470</guid>
+            <pubDate>Thu, 20 Jan 2022 12:36:34 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Christian Wakeford's long walk to defection]]></title>
+            <description><![CDATA[The MP's journey from the Tories to Labour follows ideological doubts and a lengthy wooing process.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-politics-60062632?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-politics-60062632</guid>
+            <pubDate>Wed, 19 Jan 2022 20:01:27 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[S Africa scientists: Racism at root of Omicron scepticism]]></title>
+            <description><![CDATA[South African scientists say their research was not taken more seriously because it was from Africa.]]></description>
+            <link>https://www.bbc.co.uk/news/world-africa-60039138?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-africa-60039138</guid>
+            <pubDate>Thu, 20 Jan 2022 00:08:25 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Apple AirTags - 'A perfect tool for stalking']]></title>
+            <description><![CDATA[Apple’s AirTags are great for finding lost items. But they have a darker side.]]></description>
+            <link>https://www.bbc.co.uk/news/technology-60004257?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/technology-60004257</guid>
+            <pubDate>Thu, 20 Jan 2022 00:13:46 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[The battle for Steaua Bucharest - an Eastern European giant at war with itself]]></title>
+            <description><![CDATA[European Cup winners in 1986, Steaua Bucharest's story of decline is unlike any other. A bitter dispute has split the club in two.]]></description>
+            <link>https://www.bbc.co.uk/sport/football/59974018?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/football/59974018</guid>
+            <pubDate>Thu, 20 Jan 2022 00:02:58 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Working-from-home guidance shift 'may not save my shop']]></title>
+            <description><![CDATA[End of work-from-home guidance a boost for hospitality, while nightclubs welcome scrapping of Covid passes.]]></description>
+            <link>https://www.bbc.co.uk/news/business-60057276?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/business-60057276</guid>
+            <pubDate>Wed, 19 Jan 2022 17:35:47 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Brilliant McGrath helps Australia thrash England in Ashes opener]]></title>
+            <description><![CDATA[England are thrashed in the opening match of the Women's Ashes as Tahlia McGrath fires Australia to a nine-wicket win in the first T20.]]></description>
+            <link>https://www.bbc.co.uk/sport/cricket/60066220?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/cricket/60066220</guid>
+            <pubDate>Thu, 20 Jan 2022 11:47:56 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Subdued Murray 'frustrated' and 'disappointed' by Australian Open defeat]]></title>
+            <description><![CDATA[Britain's former world number one Andy Murray produces a subdued display as he loses to Japan's Taro Daniel in the Australian Open second round.]]></description>
+            <link>https://www.bbc.co.uk/sport/tennis/60066710?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/tennis/60066710</guid>
+            <pubDate>Thu, 20 Jan 2022 13:51:15 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[More County Championship games to be played in June & July as fixtures revealed]]></title>
+            <description><![CDATA[More County Championship matches will be played in June and July following calls for more red-ball cricket in mid-summer.]]></description>
+            <link>https://www.bbc.co.uk/sport/cricket/60057316?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/cricket/60057316</guid>
+            <pubDate>Thu, 20 Jan 2022 13:01:25 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Douglas makes Team GB history as first female summer and winter Olympian]]></title>
+            <description><![CDATA[Montell Douglas will become the first female British athlete to compete at both the summer and winter Olympic Games after being named in the Team GB bobsleigh squad for Beijing.]]></description>
+            <link>https://www.bbc.co.uk/sport/winter-olympics/60058136?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/winter-olympics/60058136</guid>
+            <pubDate>Thu, 20 Jan 2022 09:22:54 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Australian Open: Andy Murray opponent Taro Daniel almost hits umpire with wild return]]></title>
+            <description><![CDATA[Watch as Andy Murray's opponent Taro Daniel hits a wild return that skims the back of the chair umpire during their second round match at the Australian Open.]]></description>
+            <link>https://www.bbc.co.uk/sport/av/tennis/60067680?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/av/tennis/60067680</guid>
+            <pubDate>Thu, 20 Jan 2022 09:34:50 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[NBA: Watch Joel Embiid's best plays for Philadelphia 76ers]]></title>
+            <description><![CDATA[Watch Joel Embiid's best plays as he matches his career-high score of 50 points in the Philadelphia 76ers' 123-110 victory over the Orlando Magic.]]></description>
+            <link>https://www.bbc.co.uk/sport/av/basketball/60067204?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/av/basketball/60067204</guid>
+            <pubDate>Thu, 20 Jan 2022 09:31:21 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Amir Khan: I don't think Kell Brook can take a shot]]></title>
+            <description><![CDATA[Amir Khan believes Kell Brook's punching power has gone and he can no longer take a shot as the animosity between the pair continues before they meet on 19 February in Manchester.]]></description>
+            <link>https://www.bbc.co.uk/sport/av/boxing/60068170?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/av/boxing/60068170</guid>
+            <pubDate>Thu, 20 Jan 2022 10:07:50 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What are the latest Covid rules across the UK?]]></title>
+            <description><![CDATA[England is scrapping its "Plan B" Covid restrictions as Scotland and Wales also ease rules.]]></description>
+            <link>https://www.bbc.co.uk/news/explainers-52530518?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/explainers-52530518</guid>
+            <pubDate>Wed, 19 Jan 2022 13:15:06 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What are the latest rules for face coverings and masks?]]></title>
+            <description><![CDATA[People in England will soon no longer be legally required to wear facemasks.]]></description>
+            <link>https://www.bbc.co.uk/news/health-51205344?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-51205344</guid>
+            <pubDate>Wed, 19 Jan 2022 15:46:52 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What are the Covid self-isolation rules and will they be scrapped?]]></title>
+            <description><![CDATA[People with Covid in England may soon no longer have to self-isolate after testing positive.]]></description>
+            <link>https://www.bbc.co.uk/news/explainers-54239922?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/explainers-54239922</guid>
+            <pubDate>Thu, 20 Jan 2022 12:04:47 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Should I be working from home now?]]></title>
+            <description><![CDATA[The advice to work from home has been removed in England but will remain across the rest of the UK.]]></description>
+            <link>https://www.bbc.co.uk/news/business-52567567?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/business-52567567</guid>
+            <pubDate>Wed, 19 Jan 2022 14:38:26 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Covid-19 in the UK: How many coronavirus cases are there in my area?]]></title>
+            <description><![CDATA[Explore the data on coronavirus in the UK and find out how many cases there are in your area.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-51768274?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-51768274</guid>
+            <pubDate>Wed, 19 Jan 2022 17:39:27 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Covid passports: Where do I need a pass and how do I get one?]]></title>
+            <description><![CDATA[Mandatory Covid passports will be scrapped in England but remain across the rest of the UK.]]></description>
+            <link>https://www.bbc.co.uk/news/explainers-55718553?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/explainers-55718553</guid>
+            <pubDate>Wed, 19 Jan 2022 13:03:02 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What are the Covid rules in schools and will they stay open this term?]]></title>
+            <description><![CDATA[Schools have reopened across the UK with a variety of Covid restrictions in place.]]></description>
+            <link>https://www.bbc.co.uk/news/education-51643556?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/education-51643556</guid>
+            <pubDate>Wed, 19 Jan 2022 13:12:44 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Covid: How to look after yourself at home]]></title>
+            <description><![CDATA[What can you expect if you have Covid, and when should you get extra help?]]></description>
+            <link>https://www.bbc.co.uk/news/health-59683083?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-59683083</guid>
+            <pubDate>Tue, 18 Jan 2022 12:46:56 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[When can I have a booster jab and how do I book one?]]></title>
+            <description><![CDATA[Some companies are cutting sick pay for unvaccinated staff who have to isolate after exposure to Covid.]]></description>
+            <link>https://www.bbc.co.uk/news/health-55045639?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-55045639</guid>
+            <pubDate>Tue, 18 Jan 2022 11:22:26 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Omicron symptoms: Is a runny nose a cold or Covid?]]></title>
+            <description><![CDATA[Could a runny nose be a sign you have Omicron?]]></description>
+            <link>https://www.bbc.co.uk/news/health-54145299?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-54145299</guid>
+            <pubDate>Thu, 23 Dec 2021 12:39:36 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Long Covid: What is it and what are the symptoms?]]></title>
+            <description><![CDATA[Significant numbers of people have had long-term problems after recovering from coronavirus.]]></description>
+            <link>https://www.bbc.co.uk/news/health-57833394?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-57833394</guid>
+            <pubDate>Thu, 06 Jan 2022 17:53:16 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Covid vaccines: How fast is progress around the world?]]></title>
+            <description><![CDATA[Charts and maps tracking the progress of Covid vaccination programmes.]]></description>
+            <link>https://www.bbc.co.uk/news/world-56237778?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-56237778</guid>
+            <pubDate>Mon, 17 Jan 2022 18:02:43 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How do I get a lateral flow test or a PCR?]]></title>
+            <description><![CDATA[Across the UK, people without symptoms no longer have to confirm a positive LFT result with a PCR.]]></description>
+            <link>https://www.bbc.co.uk/news/health-51943612?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-51943612</guid>
+            <pubDate>Mon, 17 Jan 2022 09:25:01 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[What Covid tests do I need to travel abroad?]]></title>
+            <description><![CDATA[France is softening its entry requirements for vaccinated travellers from the UK.]]></description>
+            <link>https://www.bbc.co.uk/news/explainers-52544307?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/explainers-52544307</guid>
+            <pubDate>Fri, 14 Jan 2022 16:02:50 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Covid rules: What are the restrictions in your area?]]></title>
+            <description><![CDATA[Use our search tool to find out about coronavirus rules and restrictions where you live.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-54373904?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-54373904</guid>
+            <pubDate>Fri, 14 Jan 2022 16:11:54 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Omicron: How do I know if I have it?]]></title>
+            <description><![CDATA[The symptoms are similar to a cold, while genetic analysis is the only way to confirm the variant.]]></description>
+            <link>https://www.bbc.co.uk/news/health-59460252?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-59460252</guid>
+            <pubDate>Tue, 04 Jan 2022 12:25:12 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Coronavirus treatments: What progress is being made?]]></title>
+            <description><![CDATA[Medical teams around the world are learning which medicines work best against Covid.]]></description>
+            <link>https://www.bbc.co.uk/news/health-52354520?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/health-52354520</guid>
+            <pubDate>Tue, 21 Dec 2021 09:22:43 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Covid: What are the social distancing rules?]]></title>
+            <description><![CDATA[Scotland and Wales are relaxing some of their restrictions around gatherings and mixing with others.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-51506729?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-51506729</guid>
+            <pubDate>Tue, 18 Jan 2022 16:45:10 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Specialist mental health unit failures exposed by patients]]></title>
+            <description><![CDATA[Patients say they’ve been placed in unsafe environments, often far from home.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-59964353?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/uk-59964353</guid>
+            <pubDate>Tue, 18 Jan 2022 02:04:30 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Secret audio sheds light on toppled dictator’s frantic last hours]]></title>
+            <description><![CDATA[The BBC has obtained extraordinary recordings believed to be of phone calls made by Tunisian ex president Zine al-Abidine Ben Ali as he flew out of the country in 2011.]]></description>
+            <link>https://www.bbc.co.uk/news/world-africa-59972545?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-africa-59972545</guid>
+            <pubDate>Fri, 14 Jan 2022 00:10:44 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Russia-Ukraine crisis: Why Brussels fears Europe is 'closest to war' in decades]]></title>
+            <description><![CDATA[Fears are rising over Russia's plans to shake up the region, writes BBC Europe editor Katya Adler.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-60030615?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/news/world-europe-60030615</guid>
+            <pubDate>Mon, 17 Jan 2022 19:19:33 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Lea Campos: The Brazilian who battled prejudice & patriarchy to become a referee]]></title>
+            <description><![CDATA[Lea Campos battled opponents in the Brazilian establishment to achieve her dream and blaze a trail for others to follow.]]></description>
+            <link>https://www.bbc.co.uk/sport/football/59952796?at_medium=RSS&amp;at_campaign=KARANGA</link>
+            <guid isPermaLink="false">https://www.bbc.co.uk/sport/football/59952796</guid>
+            <pubDate>Thu, 13 Jan 2022 00:01:27 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

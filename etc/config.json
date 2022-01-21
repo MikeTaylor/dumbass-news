@@ -20,6 +20,10 @@
       "type": "rss",
       "url": "https://feeds.bbci.co.uk/news/nosuchrss.xml"
     },
+    "static": {
+      "type": "rss",
+      "url": "file:///static/rss.xml"
+    },
     "bbc": {
       "type": "rss",
       "url": "https://feeds.bbci.co.uk/news/rss.xml"
