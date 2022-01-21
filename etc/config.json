@@ -27,6 +27,10 @@
     "bbc": {
       "type": "rss",
       "url": "https://feeds.bbci.co.uk/news/rss.xml"
+    },
+    "hackernews": {
+      "type": "rss",
+      "url": "https://news.ycombinator.com/rss"
     }
   },
   "transformations": {
