@@ -8,20 +8,19 @@ import "io/ioutil"
 
 func showHome(w http.ResponseWriter, server *NewsServer) {
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprintln(w, "<h1>Example pages</h2>\n")
-	fmt.Fprintln(w, "<ul>\n")
+	fmt.Fprintln(w, "<h1>Example pages</h2>")
+	fmt.Fprintln(w, "<ul>")
 	fmt.Fprintln(w, `
 <li><a href="http://localhost:12368/">200 (this page)</a></li>
 <li><a href="http://localhost:12368/foo">404 (no transformation component)</a></li>
-<li><a href="http://localhost:12368/foo/bar/baz">404 (extra path component)</a></li>
-<li><a href="http://localhost:12368/foo/bar">400 (bad channel)</a></li>
-<li><a href="http://localhost:12368/badtype/bar">400 (channel of bad type)</a></li>
-<li><a href="http://localhost:12368/nohost/bar">500 (RSS channel with bad host)</a></li>
-<li><a href="http://localhost:12368/nofile/bar">500 (RSS channel with bad file)</a></li>
-<li><a href="http://localhost:12368/bbc/bar">200 (RSS channel working)</a></li>
-<li><a href="http://localhost:12368/static/bar">200 (RSS channel working from static file)</a></li>
-`)
-	fmt.Fprintln(w, "</ul>\n")
+<li><a href="http://localhost:12368/foo/disemvowel/baz">404 (extra path component)</a></li>
+<li><a href="http://localhost:12368/foo/disemvowel">400 (bad channel)</a></li>
+<li><a href="http://localhost:12368/badtype/disemvowel">400 (channel of bad type)</a></li>
+<li><a href="http://localhost:12368/nohost/disemvowel">500 (RSS channel with bad host)</a></li>
+<li><a href="http://localhost:12368/nofile/disemvowel">500 (RSS channel with bad file)</a></li>
+<li><a href="http://localhost:12368/bbc/disemvowel">200 (RSS channel working)</a></li>
+<li><a href="http://localhost:12368/static/disemvowel">200 (RSS channel working from static file)</a></li>`)
+	fmt.Fprintln(w, "</ul>")
 }
 
 func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, transformation string, entries []Entry) {
@@ -68,8 +67,24 @@ func getData(server *NewsServer, channelConfig ChannelConfig) ([]Entry, *httpErr
 	return entries, nil
 }
 
-func transformData(server *NewsServer, channelConfig ChannelConfig) *httpError {
-	// XXX do it!
+func transformData(server *NewsServer, transformationConfig TransformationConfig, entries []Entry) *httpError {
+	ttype := transformationConfig.TransformationType
+	var transformer Transformer
+	switch ttype {
+	case "disemvowel":
+		transformer = DisemvowelTransformer
+	// more cases here
+	default:
+		return MakeHttpError(http.StatusBadRequest, fmt.Sprintln("unsupported transformer-type:", ttype))
+	}
+
+	for i := 0; i < len(entries); i++ {
+		err := transformer.transform(&entries[i])
+		if err != nil {
+			return MakeHttpError(http.StatusInternalServerError, err.Error())
+		}
+	}
+
 	return nil
 }
 
@@ -89,7 +104,14 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 		return
 	}
 
-	err = transformData(server, channelConfig)
+	transformationConfig, ok := server.config.Transformations[transformation]
+	if !ok {
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, "unknown transformation:", transformation)
+		return
+	}
+	server.logger.log("config", fmt.Sprintf("transformation '%s': %+v", transformation, transformationConfig))
+	err = transformData(server, transformationConfig, entries)
 	if err != nil {
 		w.WriteHeader(err.status)
 		fmt.Fprintln(w, err.message)
