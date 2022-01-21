@@ -17,12 +17,10 @@ func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, trans
 	fmt.Fprintf(w, "</ul>\n")
 }
 
-func getData(w http.ResponseWriter, server *NewsServer, channel string) []Entry {
+func getData(server *NewsServer, channel string) ([]Entry, *httpError) {
 	channelConfig, ok := server.config.Channels[channel]
 	if !ok {
-		w.WriteHeader(http.StatusBadRequest)
-		fmt.Fprintln(w, "unknown channel:", channel)
-		return nil
+		return nil, MakeHttpError(http.StatusBadRequest, fmt.Sprintln("unknown channel:", channel))
 	}
 	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
 
@@ -33,23 +31,17 @@ func getData(w http.ResponseWriter, server *NewsServer, channel string) []Entry 
 		parser = RssEntryParser
 	// more cases here
 	default:
-		w.WriteHeader(http.StatusBadRequest)
-		fmt.Fprintln(w, "unsupported channel-type:", ctype)
-		return nil
+		return nil, MakeHttpError(http.StatusBadRequest, fmt.Sprintln("unsupported channel-type:", ctype))
 	}
 
 	resp, err := server.client.Get(channelConfig.Url)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "cannot fetch %s: %v", channelConfig.Url, err)
-		return nil
+		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("cannot fetch %s: %v", channelConfig.Url, err))
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "fetch %s failed with status %s", channelConfig.Url, resp.Status)
-		return nil
+		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("fetch %s failed with status %s", channelConfig.Url, resp.Status))
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
@@ -58,17 +50,17 @@ func getData(w http.ResponseWriter, server *NewsServer, channel string) []Entry 
 	var entries []Entry
 	entries, err = parser.parse(body)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "parsing source %s failed: %v", channelConfig.Url, err)
-		return nil
+		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("parsing source %s failed: %v", channelConfig.Url, err))
 	}
 
-	return entries
+	return entries, nil
 }
 
 func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
-	entries := getData(w, server, channel)
+	entries, err := getData(server, channel)
 	if entries == nil {
+		w.WriteHeader(err.status)
+		fmt.Fprint(w, err.message)
 		return
 	}
 	// XXX transform data
