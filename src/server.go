@@ -17,12 +17,12 @@ func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, trans
 	fmt.Fprintf(w, "</ul>\n")
 }
 
-func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
+func getData(w http.ResponseWriter, server *NewsServer, channel string) []Entry {
 	channelConfig, ok := server.config.Channels[channel]
 	if !ok {
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintln(w, "unknown channel:", channel)
-		return
+		return nil
 	}
 	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
 
@@ -35,21 +35,21 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 	default:
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintln(w, "unsupported channel-type:", ctype)
-		return
+		return nil
 	}
 
 	resp, err := server.client.Get(channelConfig.Url)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "cannot fetch %s: %v", channelConfig.Url, err)
-		return
+		return nil
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "fetch %s failed with status %s", channelConfig.Url, resp.Status)
-		return
+		return nil
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
@@ -60,9 +60,17 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "parsing source %s failed: %v", channelConfig.Url, err)
-		return
+		return nil
 	}
 
+	return entries
+}
+
+func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
+	entries := getData(w, server, channel)
+	if entries == nil {
+		return
+	}
 	// XXX transform data
 
 	renderHTML(w, server, channel, transformation, entries)
@@ -104,7 +112,7 @@ func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
 			WriteTimeout: 30 * time.Second,
 		},
 		client: http.Client{
-			Timeout: 10 * time.Second,
+			Timeout:   10 * time.Second,
 			Transport: tr,
 		},
 	}
