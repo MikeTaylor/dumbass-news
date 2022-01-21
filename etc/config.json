@@ -39,6 +39,9 @@
       "text": "dumbass",
       "position": "before",
       "anchor": "noun"
+    },
+    "disemvowel": {
+      "type": "disemvowel"
     }
   }
 }
