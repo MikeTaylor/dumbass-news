@@ -23,8 +23,6 @@ type rss struct {
 }
 
 func makeRssEntries(body []byte) ([]Entry, error) {
-	fmt.Println("in makeRssEntries")
-
 	var doc rss
 	err := xml.Unmarshal([]byte(body), &doc)
 	if err != nil {
