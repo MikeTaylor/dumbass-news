@@ -7,7 +7,14 @@ import "time"
 import "io/ioutil"
 
 func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, transformation string, entries []Entry) {
-	fmt.Fprintf(w, "channel '%s', transformation '%s': %v", channel, transformation, entries)
+	w.Header().Set("Content-Type", "text/html")
+	fmt.Fprintf(w, "<h1>channel '%s'</h1>\n", channel)
+	fmt.Fprintf(w, "<p>(after transformation '%s')</p>\n", transformation)
+	fmt.Fprintf(w, "<ul>\n")
+	for i := 0; i < len(entries); i++ {
+		fmt.Fprintf(w, "<li><a href=\"%s\">%s</a></li>\n", entries[i].Link, entries[i].Headline)
+	}
+	fmt.Fprintf(w, "</ul>\n")
 }
 
 func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
@@ -48,7 +55,7 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 	body, err := ioutil.ReadAll(resp.Body)
 	server.logger.log("body", fmt.Sprintf("%s", body))
 
-	var entries []Entry;
+	var entries []Entry
 	entries, err = parser.parse(body)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
