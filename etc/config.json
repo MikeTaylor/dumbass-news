@@ -38,7 +38,7 @@
       "type": "insert",
       "text": "dumbass",
       "position": "before",
-      "anchor": "noun"
+      "anchorData": "etc/words/nouns"
     },
     "disemvowel": {
       "type": "disemvowel"

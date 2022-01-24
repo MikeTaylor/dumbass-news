@@ -24,7 +24,7 @@ type TransformationConfig struct {
 	TransformationType string `json:"type"`
 	Text               string `json:"text"`
 	Position           string `json:"position"`
-	Anchor             string `json:"anchor"`
+	AnchorData         string `json:"anchorData"`
 }
 
 type Config struct {
