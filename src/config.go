@@ -20,6 +20,7 @@ type ChannelConfig struct {
 	Url         string `json:"url"`
 }
 
+// XXX unused at present; pertains when TransformationType is "insert"
 type TransformationParams struct {
 	Text       string `json:"text"`
 	Position   string `json:"position"`
@@ -27,8 +28,8 @@ type TransformationParams struct {
 }
 
 type TransformationConfig struct {
-	TransformationType string               `json:"type"`
-	Params             TransformationParams `json:"params"`
+	TransformationType string            `json:"type"`
+	Params             map[string]string `json:"params"`
 }
 
 type Config struct {
