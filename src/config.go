@@ -20,11 +20,15 @@ type ChannelConfig struct {
 	Url         string `json:"url"`
 }
 
+type TransformationParams struct {
+	Text       string `json:"text"`
+	Position   string `json:"position"`
+	AnchorData string `json:"anchorData"`
+}
+
 type TransformationConfig struct {
-	TransformationType string `json:"type"`
-	Text               string `json:"text"`
-	Position           string `json:"position"`
-	AnchorData         string `json:"anchorData"`
+	TransformationType string               `json:"type"`
+	Params             TransformationParams `json:"params"`
 }
 
 type Config struct {

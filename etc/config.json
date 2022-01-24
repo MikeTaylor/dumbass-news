@@ -36,9 +36,11 @@
   "transformations": {
     "dumbass": {
       "type": "insert",
-      "text": "dumbass",
-      "position": "before",
-      "anchorData": "etc/words/nouns"
+      "params": {
+        "text": "dumbass",
+        "position": "before",
+        "anchorData": "etc/words/nouns"
+      }
     },
     "disemvowel": {
       "type": "disemvowel"
