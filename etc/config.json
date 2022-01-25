@@ -39,7 +39,7 @@
       "params": {
         "text": "dumbass",
         "position": "before",
-        "anchorData": "etc/words/nouns"
+        "anchorDataPath": "etc/words/nouns"
       }
     },
     "disemvowel": {

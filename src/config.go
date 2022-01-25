@@ -22,9 +22,9 @@ type ChannelConfig struct {
 
 // XXX unused at present; pertains when TransformationType is "insert"
 type TransformationParams struct {
-	Text       string `json:"text"`
-	Position   string `json:"position"`
-	AnchorData string `json:"anchorData"`
+	Text           string `json:"text"`
+	Position       string `json:"position"`
+	AnchorDataPath string `json:"anchorDataPath"`
 }
 
 type TransformationConfig struct {
