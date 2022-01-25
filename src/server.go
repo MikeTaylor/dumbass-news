@@ -28,6 +28,7 @@ func showHome(w http.ResponseWriter, server *NewsServer) {
 
 func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, transformation string, entries []Entry) {
 	w.Header().Set("Content-Type", "text/html")
+	fmt.Fprintf(w, "<p><a href=\"/\">[home]</a></p>\n")
 	fmt.Fprintf(w, "<h1>channel '%s'</h1>\n", channel)
 	fmt.Fprintf(w, "<p>(after transformation '%s')</p>\n", transformation)
 	fmt.Fprintf(w, "<ul>\n")
