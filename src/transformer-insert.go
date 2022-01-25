@@ -3,20 +3,22 @@ package main
 import "os"
 import "bufio"
 import "fmt"
+import "strings"
+import "math/rand"
 
-var nouns []string
+var nounRegister map[string]bool
 
-func loadWords(path string) ([]string, error) {
+func loadWords(path string) (map[string]bool, error) {
 	file, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	var res []string
+	var res = map[string]bool{}
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		res = append(res, scanner.Text())
+		res[scanner.Text()] = true
 	}
 
 	if err := scanner.Err(); err != nil {
@@ -28,15 +30,32 @@ func loadWords(path string) ([]string, error) {
 
 var InsertTransformer = Transformer{
 	transform: func(tc TransformationConfig, entry *Entry) error {
-		if nouns == nil {
+		if nounRegister == nil {
 			var err error
-			nouns, err = loadWords(tc.Params["anchorDataPath"])
+			nounRegister, err = loadWords(tc.Params["anchorDataPath"])
 			if err != nil {
 				return fmt.Errorf("cannot load nouns: %w", err)
 			}
-			fmt.Println("Got nouns", nouns)
+			fmt.Printf("%#v", nounRegister)
 		}
-		entry.Headline = "xxxzy"
+
+		words := strings.Fields(entry.Headline)
+		indices := make([]int, 0)
+		for i := 0; i < len(words); i++ {
+			if nounRegister[words[i]] {
+				indices = append(indices, i)
+			}
+		}
+
+		if len(indices) == 0 {
+			return nil
+		}
+
+		x := rand.Intn(len(indices))
+		index := indices[x]
+		words = append(words[:index+1], words[index:]...)
+		words[index] = tc.Params["text"]
+		entry.Headline = strings.Join(words, " ")
 		return nil
 	},
 }
