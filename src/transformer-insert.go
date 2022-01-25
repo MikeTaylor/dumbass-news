@@ -29,7 +29,8 @@ func loadWords(path string) ([]string, error) {
 var InsertTransformer = Transformer{
 	transform: func(tc TransformationConfig, entry *Entry) error {
 		if nouns == nil {
-			nouns, err := loadWords(tc.Params["anchorDataPath"])
+			var err error
+			nouns, err = loadWords(tc.Params["anchorDataPath"])
 			if err != nil {
 				// XXX this is an ugly way to handle the error
 				fmt.Println("cannot load nouns:", err)

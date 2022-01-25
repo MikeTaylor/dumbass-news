@@ -67,29 +67,6 @@ func getData(server *NewsServer, channelConfig ChannelConfig) ([]Entry, *httpErr
 	return entries, nil
 }
 
-func transformData(server *NewsServer, transformationConfig TransformationConfig, entries []Entry) *httpError {
-	ttype := transformationConfig.TransformationType
-	var transformer Transformer
-	switch ttype {
-	case "disemvowel":
-		transformer = DisemvowelTransformer
-	case "insert":
-		transformer = InsertTransformer
-	// more cases here
-	default:
-		return MakeHttpError(http.StatusBadRequest, fmt.Sprintln("unsupported transformer-type:", ttype))
-	}
-
-	for i := 0; i < len(entries); i++ {
-		err := transformer.transform(transformationConfig, &entries[i])
-		if err != nil {
-			return MakeHttpError(http.StatusInternalServerError, err.Error())
-		}
-	}
-
-	return nil
-}
-
 func showChannel(w http.ResponseWriter, server *NewsServer, channel string, transformation string) {
 	channelConfig, ok := server.config.Channels[channel]
 	if !ok {
@@ -99,10 +76,10 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 	}
 	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
 
-	entries, err := getData(server, channelConfig)
-	if err != nil {
-		w.WriteHeader(err.status)
-		fmt.Fprintln(w, err.message)
+	entries, httpErr := getData(server, channelConfig)
+	if httpErr != nil {
+		w.WriteHeader(httpErr.status)
+		fmt.Fprintln(w, httpErr.message)
 		return
 	}
 
@@ -113,10 +90,10 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 		return
 	}
 	server.logger.log("config", fmt.Sprintf("transformation '%s': %+v", transformation, transformationConfig))
-	err = transformData(server, transformationConfig, entries)
+	err := transformData(server, transformationConfig, entries)
 	if err != nil {
-		w.WriteHeader(err.status)
-		fmt.Fprintln(w, err.message)
+		w.WriteHeader(http.StatusBadRequest)
+		fmt.Fprintln(w, err.Error())
 		return
 	}
 
