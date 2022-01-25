@@ -41,6 +41,13 @@
         "anchorDataPath": "etc/words/nouns"
       }
     },
+    "retarded": {
+      "type": "insert",
+      "params": {
+        "text": "retarded",
+        "anchorDataPath": "etc/words/nouns"
+      }
+    },
     "disemvowel": {
       "type": "disemvowel"
     }
