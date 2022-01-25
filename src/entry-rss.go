@@ -22,7 +22,7 @@ type rss struct {
 	Channels []channel `xml:"channel"`
 }
 
-func makeRssEntries(body []byte) ([]Entry, error) {
+func makeRssEntries(cc ChannelConfig, body []byte) ([]Entry, error) {
 	var doc rss
 	err := xml.Unmarshal([]byte(body), &doc)
 	if err != nil {
@@ -41,7 +41,13 @@ func makeRssEntries(body []byte) ([]Entry, error) {
 	res := make([]Entry, len(ch.Items))
 	for i := 0; i < len(ch.Items); i++ {
 		item := ch.Items[i]
-		res[i].Headline = item.Title + " -- " + item.Description
+		if cc.Render == "title" {
+			res[i].Headline = item.Title
+		} else if cc.Render == "description" {
+			res[i].Headline = item.Description
+		} else {
+			res[i].Headline = item.Title + " -- " + item.Description
+		}
 		res[i].Link = item.Link
 	}
 

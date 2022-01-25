@@ -26,15 +26,18 @@
     },
     "bbc": {
       "type": "rss",
-      "url": "https://feeds.bbci.co.uk/news/rss.xml"
+      "url": "https://feeds.bbci.co.uk/news/rss.xml",
+      "render": "description"
     },
     "hackernews": {
       "type": "rss",
-      "url": "https://news.ycombinator.com/rss"
+      "url": "https://news.ycombinator.com/rss",
+      "render": "title"
     },
     "svpow": {
       "type": "rss",
-      "url": "https://svpow.com/feed/"
+      "url": "https://svpow.com/feed/",
+      "render": "title"
     }
   },
   "transformations": {

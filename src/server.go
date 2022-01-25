@@ -60,7 +60,7 @@ func getData(server *NewsServer, channelConfig ChannelConfig) ([]Entry, *httpErr
 	server.logger.log("body", fmt.Sprintf("%s", body))
 
 	var entries []Entry
-	entries, err = parser.parse(body)
+	entries, err = parser.parse(channelConfig, body)
 	if err != nil {
 		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("parsing source %s failed: %v", channelConfig.Url, err))
 	}

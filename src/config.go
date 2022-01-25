@@ -18,6 +18,7 @@ type ListenConfig struct {
 type ChannelConfig struct {
 	ChannelType string `json:"type"`
 	Url         string `json:"url"`
+	Render      string `json:"render"`
 }
 
 type TransformationConfig struct {
