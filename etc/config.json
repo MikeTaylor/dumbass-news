@@ -31,6 +31,10 @@
     "hackernews": {
       "type": "rss",
       "url": "https://news.ycombinator.com/rss"
+    },
+    "svpow": {
+      "type": "rss",
+      "url": "https://svpow.com/feed/"
     }
   },
   "transformations": {
