@@ -19,7 +19,8 @@ func showHome(w http.ResponseWriter, server *NewsServer) {
 <li><a href="http://localhost:12368/nohost/disemvowel">500 (RSS channel with bad host)</a></li>
 <li><a href="http://localhost:12368/nofile/disemvowel">500 (RSS channel with bad file)</a></li>
 <li><a href="http://localhost:12368/bbc/disemvowel">200 (RSS channel working)</a></li>
-<li><a href="http://localhost:12368/static/disemvowel">200 (RSS channel working from static file)</a></li>`)
+<li><a href="http://localhost:12368/static/disemvowel">200 (RSS channel working from static file)</a></li>
+<li><a href="http://localhost:12368/static/dumbass">200 (static RSS channel with dumbass transformation)</a></li>`)
 	fmt.Fprintln(w, "</ul>")
 }
 
