@@ -38,7 +38,6 @@
       "type": "insert",
       "params": {
         "text": "dumbass",
-        "position": "before",
         "anchorDataPath": "etc/words/nouns"
       }
     },
