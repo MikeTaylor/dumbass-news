@@ -32,9 +32,7 @@ var InsertTransformer = Transformer{
 			var err error
 			nouns, err = loadWords(tc.Params["anchorDataPath"])
 			if err != nil {
-				// XXX this is an ugly way to handle the error
-				fmt.Println("cannot load nouns:", err)
-				os.Exit(4)
+				return fmt.Errorf("cannot load nouns: %w", err)
 			}
 			fmt.Println("Got nouns", nouns)
 		}
