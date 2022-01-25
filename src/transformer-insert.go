@@ -36,7 +36,6 @@ var InsertTransformer = Transformer{
 			if err != nil {
 				return fmt.Errorf("cannot load nouns: %w", err)
 			}
-			fmt.Printf("%#v", nounRegister)
 		}
 
 		words := strings.Fields(entry.Headline)
