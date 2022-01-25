@@ -73,13 +73,15 @@ func transformData(server *NewsServer, transformationConfig TransformationConfig
 	switch ttype {
 	case "disemvowel":
 		transformer = DisemvowelTransformer
+	case "insert":
+		transformer = InsertTransformer
 	// more cases here
 	default:
 		return MakeHttpError(http.StatusBadRequest, fmt.Sprintln("unsupported transformer-type:", ttype))
 	}
 
 	for i := 0; i < len(entries); i++ {
-		err := transformer.transform(&entries[i])
+		err := transformer.transform(transformationConfig, &entries[i])
 		if err != nil {
 			return MakeHttpError(http.StatusInternalServerError, err.Error())
 		}

@@ -5,7 +5,7 @@ import "regexp"
 var re *regexp.Regexp
 
 var DisemvowelTransformer = Transformer{
-	transform: func(entry *Entry) error {
+	transform: func(tc TransformationConfig, entry *Entry) error {
 		if re == nil {
 			re = regexp.MustCompile("[aeiou]")
 		}

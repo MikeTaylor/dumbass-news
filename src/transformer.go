@@ -1,5 +1,5 @@
 package main
 
 type Transformer struct {
-	transform func(entry *Entry) error
+	transform func(tc TransformationConfig, entry *Entry) error
 }
