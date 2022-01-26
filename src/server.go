@@ -29,12 +29,15 @@ func showHome(w http.ResponseWriter, server *NewsServer) {
 func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, transformation string, entries []Entry) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprintln(w, `<link rel="stylesheet" type="text/css" href="/htdocs/style.css"/>`)
-	fmt.Fprintf(w, "<p><a href=\"/\">[home]</a></p>\n")
-	fmt.Fprintf(w, "<h1>channel '%s'</h1>\n", channel)
-	fmt.Fprintf(w, "<p>(after transformation '%s')</p>\n", transformation)
+	fmt.Fprintf(w, `<h1>
+  <div class="homelink"><a href="/">home</a></div>
+  <div class="channel">%s</div>
+  <div class="transformation">%s</div>
+</h1>
+`, channel, transformation)
 	fmt.Fprintf(w, "<ul>\n")
 	for i := 0; i < len(entries); i++ {
-		fmt.Fprintf(w, "<li><a href=\"%s\">%s</a></li>\n", entries[i].Link, entries[i].Headline)
+		fmt.Fprintf(w, "  <li><a href=\"%s\">%s</a></li>\n", entries[i].Link, entries[i].Headline)
 	}
 	fmt.Fprintf(w, "</ul>\n")
 }

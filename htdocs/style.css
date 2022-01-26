@@ -1,1 +1,15 @@
+body { font-family: Gill Sans, "Gillius ADF", Gillius, GilliusADF, Verdana, Sans-Serif }
+h1 { font-size: 150% }
+h1 .homelink, h1 .channel, h1 .transformation { display: inline-block; margin: 0; border: 0; padding: 0.2em }
+h1 .homelink { width: 20% }
+h1 .channel { width: 50%; background: lightyellow; text-align: center }
+h1 .transformation { width: 24%; text-align: right }
+h1 .homelink::before { content: "[" }
+h1 .homelink::after { content: "]" }
+h1 .channel::before { content: "channel '" }
+h1 .channel::after { content: "'" }
+h1 .transformation::before { content: "transform '" }
+h1 .transformation::after { content: "'" }
+ul { list-style: none; padding-left: 0 }
+li { padding-left: 0.5em; padding-bottom: 0.5em }
 a { text-decoration: none }
