@@ -22,7 +22,7 @@
     },
     "static": {
       "type": "rss",
-      "url": "file:///static/rss.xml"
+      "url": "file:///etc/static-rss/bbc.xml"
     },
     "bbc": {
       "type": "rss",
