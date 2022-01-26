@@ -8,9 +8,9 @@ import "io/ioutil"
 
 func showHome(w http.ResponseWriter, server *NewsServer) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintln(w, `<link rel="stylesheet" type="text/css" href="/htdocs/style.css"/>`)
 	fmt.Fprintln(w, "<h1>Example pages</h2>")
-	fmt.Fprintln(w, "<ul>")
-	fmt.Fprintln(w, `
+	fmt.Fprintln(w, `<ul>
 <li><a href="http://localhost:12368/">200 (this page)</a></li>
 <li><a href="http://localhost:12368/foo">404 (no transformation component)</a></li>
 <li><a href="http://localhost:12368/foo/disemvowel/baz">404 (extra path component)</a></li>
@@ -28,6 +28,7 @@ func showHome(w http.ResponseWriter, server *NewsServer) {
 
 func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, transformation string, entries []Entry) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprintln(w, `<link rel="stylesheet" type="text/css" href="/htdocs/style.css"/>`)
 	fmt.Fprintf(w, "<p><a href=\"/\">[home]</a></p>\n")
 	fmt.Fprintf(w, "<h1>channel '%s'</h1>\n", channel)
 	fmt.Fprintf(w, "<p>(after transformation '%s')</p>\n", transformation)
