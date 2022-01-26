@@ -148,6 +148,9 @@ func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
 	// XXX I would prefer this to be registered only to server.server
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { handler(w, r, &server) })
 
+	fs := http.FileServer(http.Dir("./htdocs"))
+	http.Handle("/htdocs/", http.StripPrefix("/htdocs/", fs))
+
 	return &server
 }
 
