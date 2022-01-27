@@ -20,7 +20,7 @@ type Logger struct {
 	timestamp  bool
 }
 
-func getCategories(cfg loggingConfig) string {
+func getCategories(fallback string) string {
 	res := os.Getenv("LOGGING_CATEGORIES")
 	if res != "" {
 		return res
@@ -29,13 +29,13 @@ func getCategories(cfg loggingConfig) string {
 	if res != "" {
 		return res
 	}
-	return cfg.Categories
+	return fallback
 }
 
 func MakeLogger(cfg loggingConfig) *Logger {
 	var logger Logger
 
-	logger.categories = getCategories(cfg)
+	logger.categories = getCategories(cfg.Categories)
 	logger.prefix = cfg.Prefix
 	logger.timestamp = cfg.Timestamp
 
