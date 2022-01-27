@@ -32,12 +32,12 @@ func getCategories(fallback string) string {
 	return fallback
 }
 
-func MakeLogger(cfg loggingConfig) *Logger {
+func MakeLogger(categories string, prefix string, timestamp bool) *Logger {
 	var logger Logger
 
-	logger.categories = getCategories(cfg.Categories)
-	logger.prefix = cfg.Prefix
-	logger.timestamp = cfg.Timestamp
+	logger.categories = getCategories(categories)
+	logger.prefix = prefix
+	logger.timestamp = timestamp
 
 	return &logger
 }

@@ -17,7 +17,8 @@ func main() {
 		os.Exit(2)
 	}
 
-	logger := MakeLogger(cfg.Logging)
+	cl := cfg.Logging
+	logger := MakeLogger(cl.Categories, cl.Prefix, cl.Timestamp)
 	logger.log("config", fmt.Sprintf("%+v", cfg))
 
 	server := MakeNewsServer(cfg, logger)
