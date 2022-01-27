@@ -33,7 +33,7 @@ type config struct {
 	Transformations map[string]transformationConfig `json:"transformations"`
 }
 
-func ReadConfig(name string) (*config, error) {
+func readConfig(name string) (*config, error) {
 	jsonFile, err := os.Open(name)
 	if err != nil {
 		return nil, err
