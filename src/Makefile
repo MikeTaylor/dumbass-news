@@ -7,6 +7,9 @@ run: dumbass-news
 lint:
 	go vet ./...
 
+test:
+	go test ./...
+
 clean:
 	rm -f dumbass-news
 
