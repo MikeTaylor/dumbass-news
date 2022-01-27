@@ -2,15 +2,16 @@ package main
 
 import "regexp"
 
-var re *regexp.Regexp
+// private
+var _transformDisemvowel_re *regexp.Regexp
 
 var DisemvowelTransformer = Transformer{
 	transform: func(tc transformationConfig, entry *Entry) error {
-		if re == nil {
-			re = regexp.MustCompile("[aeiou]")
+		if _transformDisemvowel_re == nil {
+			_transformDisemvowel_re = regexp.MustCompile("[aeiou]")
 		}
 
-		entry.Headline = re.ReplaceAllString(entry.Headline, "")
+		entry.Headline = _transformDisemvowel_re.ReplaceAllString(entry.Headline, "")
 		return nil
 	},
 }

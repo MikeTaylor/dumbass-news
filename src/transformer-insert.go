@@ -6,7 +6,8 @@ import "fmt"
 import "strings"
 import "math/rand"
 
-var nounRegister map[string]bool
+// private
+var _transformInsert_nounRegister map[string]bool
 
 func loadWords(path string) (map[string]bool, error) {
 	file, err := os.Open(path)
@@ -30,9 +31,9 @@ func loadWords(path string) (map[string]bool, error) {
 
 var InsertTransformer = Transformer{
 	transform: func(tc transformationConfig, entry *Entry) error {
-		if nounRegister == nil {
+		if _transformInsert_nounRegister == nil {
 			var err error
-			nounRegister, err = loadWords(tc.Params["anchorDataPath"])
+			_transformInsert_nounRegister, err = loadWords(tc.Params["anchorDataPath"])
 			if err != nil {
 				return fmt.Errorf("cannot load nouns: %w", err)
 			}
@@ -41,7 +42,7 @@ var InsertTransformer = Transformer{
 		words := strings.Fields(entry.Headline)
 		indices := make([]int, 0)
 		for i := 0; i < len(words); i++ {
-			if nounRegister[words[i]] {
+			if _transformInsert_nounRegister[words[i]] {
 				indices = append(indices, i)
 			}
 		}
