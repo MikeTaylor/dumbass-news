@@ -6,5 +6,5 @@ type Entry struct {
 }
 
 type EntryParser struct {
-	parse func(cc ChannelConfig, body []byte) ([]Entry, error)
+	parse func(cc channelConfig, body []byte) ([]Entry, error)
 }

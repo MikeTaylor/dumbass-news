@@ -42,8 +42,8 @@ func renderHTML(w http.ResponseWriter, server *NewsServer, channel string, trans
 	fmt.Fprintf(w, "</ul>\n")
 }
 
-func getData(server *NewsServer, channelConfig ChannelConfig) ([]Entry, *httpError) {
-	ctype := channelConfig.ChannelType
+func getData(server *NewsServer, cc channelConfig) ([]Entry, *httpError) {
+	ctype := cc.ChannelType
 	var parser EntryParser
 	switch ctype {
 	case "rss":
@@ -53,23 +53,23 @@ func getData(server *NewsServer, channelConfig ChannelConfig) ([]Entry, *httpErr
 		return nil, MakeHttpError(http.StatusBadRequest, fmt.Sprintln("unsupported channel-type:", ctype))
 	}
 
-	resp, err := server.client.Get(channelConfig.Url)
+	resp, err := server.client.Get(cc.Url)
 	if err != nil {
-		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("cannot fetch %s: %v", channelConfig.Url, err))
+		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("cannot fetch %s: %v", cc.Url, err))
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("fetch %s failed with status %s", channelConfig.Url, resp.Status))
+		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("fetch %s failed with status %s", cc.Url, resp.Status))
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 	server.logger.log("body", fmt.Sprintf("%s", body))
 
 	var entries []Entry
-	entries, err = parser.parse(channelConfig, body)
+	entries, err = parser.parse(cc, body)
 	if err != nil {
-		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("parsing source %s failed: %v", channelConfig.Url, err))
+		return nil, MakeHttpError(http.StatusInternalServerError, fmt.Sprintf("parsing source %s failed: %v", cc.Url, err))
 	}
 
 	return entries, nil
@@ -91,14 +91,14 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 		return
 	}
 
-	transformationConfig, ok := server.config.Transformations[transformation]
+	tc, ok := server.config.Transformations[transformation]
 	if !ok {
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintln(w, "unknown transformation:", transformation)
 		return
 	}
-	server.logger.log("config", fmt.Sprintf("transformation '%s': %+v", transformation, transformationConfig))
-	err := transformData(server, transformationConfig, entries)
+	server.logger.log("config", fmt.Sprintf("transformation '%s': %+v", transformation, tc))
+	err := transformData(server, tc, entries)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintln(w, err.Error())
@@ -126,18 +126,18 @@ func handler(w http.ResponseWriter, req *http.Request, server *NewsServer) {
 }
 
 type NewsServer struct {
-	config *Config
+	config *config
 	logger *Logger
 	server http.Server
 	client http.Client
 }
 
-func MakeNewsServer(config *Config, logger *Logger) *NewsServer {
+func MakeNewsServer(cfg *config, logger *Logger) *NewsServer {
 	tr := &http.Transport{}
 	tr.RegisterProtocol("file", http.NewFileTransport(http.Dir(".")))
 
 	var server = NewsServer{
-		config: config,
+		config: cfg,
 		logger: logger,
 		server: http.Server{
 			ReadTimeout:  30 * time.Second,

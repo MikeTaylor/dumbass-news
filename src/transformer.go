@@ -3,11 +3,11 @@ package main
 import "errors"
 
 type Transformer struct {
-	transform func(tc TransformationConfig, entry *Entry) error
+	transform func(tc transformationConfig, entry *Entry) error
 }
 
-func transformData(server *NewsServer, transformationConfig TransformationConfig, entries []Entry) error {
-	ttype := transformationConfig.TransformationType
+func transformData(server *NewsServer, tc transformationConfig, entries []Entry) error {
+	ttype := tc.TransformationType
 	var transformer Transformer
 	switch ttype {
 	case "disemvowel":
@@ -20,7 +20,7 @@ func transformData(server *NewsServer, transformationConfig TransformationConfig
 	}
 
 	for i := 0; i < len(entries); i++ {
-		err := transformer.transform(transformationConfig, &entries[i])
+		err := transformer.transform(tc, &entries[i])
 		if err != nil {
 			return err
 		}

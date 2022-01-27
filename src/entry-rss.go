@@ -22,7 +22,7 @@ type rss struct {
 	Channels []channel `xml:"channel"`
 }
 
-func makeRssEntries(cc ChannelConfig, body []byte) ([]Entry, error) {
+func makeRssEntries(cc channelConfig, body []byte) ([]Entry, error) {
 	var doc rss
 	err := xml.Unmarshal([]byte(body), &doc)
 	if err != nil {

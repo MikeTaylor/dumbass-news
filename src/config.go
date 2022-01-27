@@ -4,36 +4,36 @@ import "os"
 import "io/ioutil"
 import "encoding/json"
 
-type LoggingConfig struct {
+type loggingConfig struct {
 	Categories string `json:"categories"`
 	Prefix     string `json:"prefix"`
 	Timestamp  bool   `json:"timestamp"`
 }
 
-type ListenConfig struct {
+type listenConfig struct {
 	Host string `json:"host"`
 	Port int    `json:"port"`
 }
 
-type ChannelConfig struct {
+type channelConfig struct {
 	ChannelType string `json:"type"`
 	Url         string `json:"url"`
 	Render      string `json:"render"`
 }
 
-type TransformationConfig struct {
+type transformationConfig struct {
 	TransformationType string            `json:"type"`
 	Params             map[string]string `json:"params"`
 }
 
-type Config struct {
-	Logging         LoggingConfig                   `json:"logging"`
-	Listen          ListenConfig                    `json:"listen"`
-	Channels        map[string]ChannelConfig        `json:"channels"`
-	Transformations map[string]TransformationConfig `json:"transformations"`
+type config struct {
+	Logging         loggingConfig                   `json:"logging"`
+	Listen          listenConfig                    `json:"listen"`
+	Channels        map[string]channelConfig        `json:"channels"`
+	Transformations map[string]transformationConfig `json:"transformations"`
 }
 
-func ReadConfig(name string) (*Config, error) {
+func ReadConfig(name string) (*config, error) {
 	jsonFile, err := os.Open(name)
 	if err != nil {
 		return nil, err
@@ -41,10 +41,10 @@ func ReadConfig(name string) (*Config, error) {
 	defer jsonFile.Close()
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
-	var config Config
-	err = json.Unmarshal(byteValue, &config)
+	var cfg config
+	err = json.Unmarshal(byteValue, &cfg)
 	if err != nil {
 		return nil, err
 	}
-	return &config, nil
+	return &cfg, nil
 }

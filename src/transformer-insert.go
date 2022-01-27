@@ -29,7 +29,7 @@ func loadWords(path string) (map[string]bool, error) {
 }
 
 var InsertTransformer = Transformer{
-	transform: func(tc TransformationConfig, entry *Entry) error {
+	transform: func(tc transformationConfig, entry *Entry) error {
 		if nounRegister == nil {
 			var err error
 			nounRegister, err = loadWords(tc.Params["anchorDataPath"])

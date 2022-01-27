@@ -10,18 +10,18 @@ func main() {
 	}
 
 	var file = os.Args[1]
-	var config *Config
-	config, err := ReadConfig(file)
+	var cfg *config
+	cfg, err := ReadConfig(file)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Cannot read config file '%s': %v", file, err)
 		os.Exit(2)
 	}
 
-	logger := MakeLogger(config.Logging)
-	logger.log("config", fmt.Sprintf("%+v", config))
+	logger := MakeLogger(cfg.Logging)
+	logger.log("config", fmt.Sprintf("%+v", cfg))
 
-	server := MakeNewsServer(config, logger)
-	err = server.launch(config.Listen.Host + ":" + fmt.Sprint(config.Listen.Port))
+	server := MakeNewsServer(cfg, logger)
+	err = server.launch(cfg.Listen.Host + ":" + fmt.Sprint(cfg.Listen.Port))
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Cannot create HTTP server:", err)
 		os.Exit(3)
