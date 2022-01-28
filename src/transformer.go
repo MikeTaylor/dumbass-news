@@ -3,7 +3,7 @@ package main
 import "errors"
 
 type Transformer struct {
-	transform func(tc transformationConfig, entry *Entry) error
+	transform func(server *NewsServer, tc transformationConfig, entry *Entry) error
 }
 
 func transformData(server *NewsServer, tc transformationConfig, entries []Entry) error {
@@ -20,7 +20,7 @@ func transformData(server *NewsServer, tc transformationConfig, entries []Entry)
 	}
 
 	for i := 0; i < len(entries); i++ {
-		err := transformer.transform(tc, &entries[i])
+		err := transformer.transform(server, tc, &entries[i])
 		if err != nil {
 			return err
 		}

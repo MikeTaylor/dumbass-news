@@ -128,6 +128,7 @@ func handler(w http.ResponseWriter, req *http.Request, server *NewsServer) {
 type NewsServer struct {
 	config *config
 	logger *Logger
+	root string
 	server http.Server
 	client http.Client
 }
@@ -139,6 +140,7 @@ func MakeNewsServer(cfg *config, logger *Logger, root string) *NewsServer {
 	var server = NewsServer{
 		config: cfg,
 		logger: logger,
+		root: root,
 		server: http.Server{
 			ReadTimeout:  30 * time.Second,
 			WriteTimeout: 30 * time.Second,

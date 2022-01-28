@@ -30,10 +30,10 @@ func loadWords(path string) (map[string]bool, error) {
 }
 
 var InsertTransformer = Transformer{
-	transform: func(tc transformationConfig, entry *Entry) error {
+	transform: func(server *NewsServer, tc transformationConfig, entry *Entry) error {
 		if _transformInsert_nounRegister == nil {
 			var err error
-			_transformInsert_nounRegister, err = loadWords(tc.Params["anchorDataPath"])
+			_transformInsert_nounRegister, err = loadWords(server.root + "/" + tc.Params["anchorDataPath"])
 			if err != nil {
 				return fmt.Errorf("cannot load nouns: %w", err)
 			}

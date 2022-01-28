@@ -6,7 +6,7 @@ import "regexp"
 var _transformDisemvowel_re *regexp.Regexp
 
 var DisemvowelTransformer = Transformer{
-	transform: func(tc transformationConfig, entry *Entry) error {
+	transform: func(server *NewsServer, tc transformationConfig, entry *Entry) error {
 		if _transformDisemvowel_re == nil {
 			_transformDisemvowel_re = regexp.MustCompile("[aeiou]")
 		}
