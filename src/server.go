@@ -132,9 +132,9 @@ type NewsServer struct {
 	client http.Client
 }
 
-func MakeNewsServer(cfg *config, logger *Logger) *NewsServer {
+func MakeNewsServer(cfg *config, logger *Logger, root string) *NewsServer {
 	tr := &http.Transport{}
-	tr.RegisterProtocol("file", http.NewFileTransport(http.Dir(".")))
+	tr.RegisterProtocol("file", http.NewFileTransport(http.Dir(root)))
 
 	var server = NewsServer{
 		config: cfg,

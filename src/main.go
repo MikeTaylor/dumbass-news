@@ -21,7 +21,7 @@ func main() {
 	logger := MakeLogger(cl.Categories, cl.Prefix, cl.Timestamp)
 	logger.log("config", fmt.Sprintf("%+v", cfg))
 
-	server := MakeNewsServer(cfg, logger)
+	server := MakeNewsServer(cfg, logger, ".")
 	err = server.launch(cfg.Listen.Host + ":" + fmt.Sprint(cfg.Listen.Port))
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Cannot create HTTP server:", err)
