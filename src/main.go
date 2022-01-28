@@ -13,7 +13,7 @@ func main() {
 	var cfg *config
 	cfg, err := readConfig(file)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Cannot read config file '%s': %v", file, err)
+		fmt.Fprintf(os.Stderr, "Cannot read config file '%s': %v\n", file, err)
 		os.Exit(2)
 	}
 
