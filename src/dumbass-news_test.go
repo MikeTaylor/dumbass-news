@@ -56,6 +56,7 @@ func runTests(t *testing.T, client http.Client) {
 		{"remote RSS", "bbc/disemvowel", 200, "https://www.bbc.co.uk/news/"},     // Links from this feed
 		{"Hacker News RSS with insert", "hackernews/dumbass", 200, "hackernews"}, // Links could be to anywhere
 		{"SV-POW! RSS with insert", "svpow/dumbass", 200, "https://svpow.com/.*dumbass"},
+		{"static CSS file", "htdocs/style.css", 200, "text-decoration"},
 	}
 
 	for _, d := range data {
