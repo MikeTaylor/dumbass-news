@@ -137,6 +137,7 @@ func MakeNewsServer(cfg *config, logger *Logger, root string) *NewsServer {
 	tr := &http.Transport{}
 	tr.RegisterProtocol("file", http.NewFileTransport(http.Dir(root)))
 
+	mux := http.NewServeMux()
 	var server = NewsServer{
 		config: cfg,
 		logger: logger,
@@ -144,6 +145,7 @@ func MakeNewsServer(cfg *config, logger *Logger, root string) *NewsServer {
 		server: http.Server{
 			ReadTimeout:  30 * time.Second,
 			WriteTimeout: 30 * time.Second,
+			Handler: mux,
 		},
 		client: http.Client{
 			Timeout:   10 * time.Second,
@@ -151,11 +153,9 @@ func MakeNewsServer(cfg *config, logger *Logger, root string) *NewsServer {
 		},
 	}
 
-	// XXX I would prefer this to be registered only to server.server
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { handler(w, r, &server) })
-
-	fs := http.FileServer(http.Dir("./htdocs"))
-	http.Handle("/htdocs/", http.StripPrefix("/htdocs/", fs))
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { handler(w, r, &server) })
+	fs := http.FileServer(http.Dir(root + "/htdocs"))
+	mux.Handle("/htdocs/", http.StripPrefix("/htdocs/", fs))
 
 	return &server
 }
