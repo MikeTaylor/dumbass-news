@@ -5,7 +5,7 @@ import "fmt"
 import "strings"
 import "time"
 import "io/ioutil"
-import clogger "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
+import "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
 
 func showHome(w http.ResponseWriter, server *NewsServer) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")

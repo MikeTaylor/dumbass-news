@@ -7,7 +7,7 @@ import "time"
 import "net/http"
 import "io/ioutil"
 import "regexp"
-import clogger "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
+import "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
 
 func TestDumbassNews(t *testing.T) {
 	// For now we duplicate code from main.go

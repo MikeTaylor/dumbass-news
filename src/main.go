@@ -2,7 +2,7 @@ package main
 
 import "os"
 import "fmt"
-import clogger "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
+import "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
 
 func main() {
 	if len(os.Args) != 2 {
