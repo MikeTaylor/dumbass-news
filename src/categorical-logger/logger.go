@@ -7,7 +7,7 @@
 // 2. It does not have the the setter methods
 // 3. It is not documented
 //
-package main
+package clogger
 
 import "strings"
 import "time"
@@ -42,14 +42,14 @@ func MakeLogger(categories string, prefix string, timestamp bool) *Logger {
 	return &logger
 }
 
-func (l *Logger) hasCategory(cat string) bool {
+func (l *Logger) HasCategory(cat string) bool {
 	var xlist string = "," + l.categories + ","
 	var xcat string = "," + cat + ","
 	return strings.Contains(xlist, xcat)
 }
 
-func (l *Logger) log(cat string, args ...string) {
-	if !l.hasCategory(cat) {
+func (l *Logger) Log(cat string, args ...string) {
+	if !l.HasCategory(cat) {
 		return
 	}
 

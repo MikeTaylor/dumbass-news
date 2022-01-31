@@ -7,6 +7,7 @@ import "time"
 import "net/http"
 import "io/ioutil"
 import "regexp"
+import clogger "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
 
 func TestDumbassNews(t *testing.T) {
 	// For now we duplicate code from main.go
@@ -20,8 +21,8 @@ func TestDumbassNews(t *testing.T) {
 	}
 
 	cl := cfg.Logging
-	logger := MakeLogger("listen", cl.Prefix, cl.Timestamp)
-	logger.log("config", fmt.Sprintf("%+v", cfg))
+	logger := clogger.MakeLogger("listen", cl.Prefix, cl.Timestamp)
+	logger.Log("config", fmt.Sprintf("%+v", cfg))
 
 	server := MakeNewsServer(cfg, logger, "..")
 	go func() {

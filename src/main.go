@@ -2,6 +2,7 @@ package main
 
 import "os"
 import "fmt"
+import clogger "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
 
 func main() {
 	if len(os.Args) != 2 {
@@ -18,8 +19,8 @@ func main() {
 	}
 
 	cl := cfg.Logging
-	logger := MakeLogger(cl.Categories, cl.Prefix, cl.Timestamp)
-	logger.log("config", fmt.Sprintf("%+v", cfg))
+	logger := clogger.MakeLogger(cl.Categories, cl.Prefix, cl.Timestamp)
+	logger.Log("config", fmt.Sprintf("%+v", cfg))
 
 	server := MakeNewsServer(cfg, logger, ".")
 	err = server.launch(cfg.Listen.Host + ":" + fmt.Sprint(cfg.Listen.Port))

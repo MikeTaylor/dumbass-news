@@ -5,6 +5,7 @@ import "fmt"
 import "strings"
 import "time"
 import "io/ioutil"
+import clogger "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
 
 func showHome(w http.ResponseWriter, server *NewsServer) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -64,7 +65,7 @@ func getData(server *NewsServer, cc channelConfig) ([]Entry, *httpError) {
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
-	server.logger.log("body", fmt.Sprintf("%s", body))
+	server.logger.Log("body", fmt.Sprintf("%s", body))
 
 	var entries []Entry
 	entries, err = parser.parse(cc, body)
@@ -82,7 +83,7 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 		fmt.Fprintln(w, "unknown channel:", channel)
 		return
 	}
-	server.logger.log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
+	server.logger.Log("config", fmt.Sprintf("channel '%s': %+v", channel, channelConfig))
 
 	entries, httpErr := getData(server, channelConfig)
 	if httpErr != nil {
@@ -97,7 +98,7 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 		fmt.Fprintln(w, "unknown transformation:", transformation)
 		return
 	}
-	server.logger.log("config", fmt.Sprintf("transformation '%s': %+v", transformation, tc))
+	server.logger.Log("config", fmt.Sprintf("transformation '%s': %+v", transformation, tc))
 	err := transformData(server, tc, entries)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
@@ -111,7 +112,7 @@ func showChannel(w http.ResponseWriter, server *NewsServer, channel string, tran
 func handler(w http.ResponseWriter, req *http.Request, server *NewsServer) {
 	raw := strings.Split(req.URL.Path, "/")
 	chunks := raw[1:] // Skip initial empty component
-	server.logger.log("path", strings.Join(chunks, "/"))
+	server.logger.Log("path", strings.Join(chunks, "/"))
 
 	if len(chunks) == 1 && chunks[0] == "" {
 		// Home page
@@ -127,13 +128,13 @@ func handler(w http.ResponseWriter, req *http.Request, server *NewsServer) {
 
 type NewsServer struct {
 	config *config
-	logger *Logger
+	logger *clogger.Logger
 	root string
 	server http.Server
 	client http.Client
 }
 
-func MakeNewsServer(cfg *config, logger *Logger, root string) *NewsServer {
+func MakeNewsServer(cfg *config, logger *clogger.Logger, root string) *NewsServer {
 	tr := &http.Transport{}
 	tr.RegisterProtocol("file", http.NewFileTransport(http.Dir(root)))
 
@@ -162,8 +163,8 @@ func MakeNewsServer(cfg *config, logger *Logger, root string) *NewsServer {
 
 func (server *NewsServer) launch(hostspec string) error {
 	server.server.Addr = hostspec
-	server.logger.log("listen", "listening on", hostspec)
+	server.logger.Log("listen", "listening on", hostspec)
 	err := server.server.ListenAndServe()
-	server.logger.log("listen", "finished listening on", hostspec)
+	server.logger.Log("listen", "finished listening on", hostspec)
 	return err
 }
