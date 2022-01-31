@@ -1,4 +1,4 @@
-package clogger
+package catlogger
 
 import "testing"
 

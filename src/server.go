@@ -5,7 +5,7 @@ import "fmt"
 import "strings"
 import "time"
 import "io/ioutil"
-import "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
+import "github.com/MikeTaylor/dumbass-news/src/catlogger"
 
 func showHome(w http.ResponseWriter, server *NewsServer) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
@@ -128,13 +128,13 @@ func handler(w http.ResponseWriter, req *http.Request, server *NewsServer) {
 
 type NewsServer struct {
 	config *config
-	logger *clogger.Logger
+	logger *catlogger.Logger
 	root string
 	server http.Server
 	client http.Client
 }
 
-func MakeNewsServer(cfg *config, logger *clogger.Logger, root string) *NewsServer {
+func MakeNewsServer(cfg *config, logger *catlogger.Logger, root string) *NewsServer {
 	tr := &http.Transport{}
 	tr.RegisterProtocol("file", http.NewFileTransport(http.Dir(root)))
 

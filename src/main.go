@@ -2,7 +2,7 @@ package main
 
 import "os"
 import "fmt"
-import "github.com/MikeTaylor/dumbass-news/src/categorical-logger"
+import "github.com/MikeTaylor/dumbass-news/src/catlogger"
 
 func main() {
 	if len(os.Args) != 2 {
@@ -19,7 +19,7 @@ func main() {
 	}
 
 	cl := cfg.Logging
-	logger := clogger.MakeLogger(cl.Categories, cl.Prefix, cl.Timestamp)
+	logger := catlogger.MakeLogger(cl.Categories, cl.Prefix, cl.Timestamp)
 	logger.Log("config", fmt.Sprintf("%+v", cfg))
 
 	server := MakeNewsServer(cfg, logger, ".")

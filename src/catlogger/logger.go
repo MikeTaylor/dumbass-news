@@ -1,4 +1,4 @@
-// categorical-logger/clogger is derived from the JavaScript package
+// catlogger is derived from the JavaScript package
 // categorical-logger, which can be found at
 // https://github.com/openlibraryenvironment/categorical-logger
 // The present version of this library falls short of its ancestor in
@@ -6,7 +6,7 @@
 //  1. It does not support logging functional arguments
 //  2. It does not have the the setter methods
 //
-package clogger
+package catlogger
 
 import "strings"
 import "time"
@@ -36,7 +36,7 @@ func getCategories(fallback string) string {
 	return fallback
 }
 
-// MakeLogger creates a categorical-logger object on which the Log
+// MakeLogger creates a catlogger object on which the Log
 // method may subsequently be called. The logger is configured by
 // three parameters:
 //
