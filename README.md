@@ -2,7 +2,7 @@
 
 Copyright (C) 2022 Mike Taylor <mike@miketaylor.org.uk>
 
-Licensed under [the GNU General Public License (GPL) v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+Licensed under [the GNU General Public License (GPL) v3.0](LICENSE).
 
 
 ## Overview
