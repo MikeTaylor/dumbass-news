@@ -5,3 +5,8 @@
 * First tagged release.
 * Functional, but ugly and inefficient.
 
+## 1.1.0 (IN PROGRESS)
+
+* Document configuration-file format (#4)
+
+
