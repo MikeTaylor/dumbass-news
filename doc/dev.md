@@ -1,11 +1,10 @@
 # Developer documentation: the `dumbass-news` source code
 
 
-<!-- md2toc -l 2 overview.md -->
+<!-- md2toc -l 2 dev.md -->
 * [Overview](#overview)
 * [The `catlogger` package](#the-catlogger-package)
 * [The `main` package](#the-main-package)
-    * [Compilation](#compilation)
     * [Main routine](#main-routine)
     * [Configuration](#configuration)
     * [Server](#server)
@@ -17,7 +16,7 @@
 
 ## Overview
 
-The `dumbass-news` source code is organized into two packages: `main`, which contains almost all the code, and `catlogger` (in [the subdirectory of that name](catlogger)), which contains only the very simple categorical-logger library. Compilation is controlled by a very simple [`Makefile`](Makefile), which supports the targets `run`, `lint`, `test` and `clean` as well as the basic build.
+[The `dumbass-news` source code](../src) is organized into two packages: `main`, which contains almost all the code, and `catlogger` (in [the subdirectory of that name](../src/catlogger)), which contains only the very simple categorical-logger library. Compilation is controlled by a very simple [`Makefile`](../src/Makefile), which supports the targets `run`, `lint`, `test` and `clean` as well as the basic build.
 
 
 
