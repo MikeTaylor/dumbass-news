@@ -23,7 +23,7 @@ The `dumbass-news` source code is organized into two packages: `main`, which con
 
 ## The `catlogger` package
 
-This package provides a single object, `Logger`, via the exported `MakeLogger` function. The object's `log` method can then be used to log information in arbitrary categories. The library is intended to be usable in other projects, at least in principal, and is documented separately using [godoc comments](https://go.dev/blog/godoc).
+This package provides a single object, `Logger`, via the exported `MakeLogger` factory function. The object's `log` method can then be used to log information in arbitrary categories. The library is intended to be usable in other projects, at least in principal, and is documented separately using [godoc comments](https://go.dev/blog/godoc).
 
 
 
@@ -42,8 +42,9 @@ This package provides a single object, `Logger`, via the exported `MakeLogger` f
 
 ### Server
 
-XXX server.go
-XXX http-error.go
+`server.go` provides the `NewsServer` object, created by the `MakeNewsServer` factory function, which does all the work. The server routes incoming HTTP requests to render a hardwired HTML home-page, show the contents of a channel, or return a static file. When showing the contents of a channel, the channel name and transformation are extracted from the HTTP request path, and resolved respectively to an entry-parser object and a transformer object. Assuming both are recognised, the channel's source is read (usually via HTTP), entries extracted and transformed, and an HTML response written.
+
+`http-error.go` provides a very simple data structure, created by the factory function `MakeHttpError`, which aggregates a Go Error object with an HTTP status code. This is used only in `server.go`.
 
 
 ### Entry parsing
@@ -67,6 +68,10 @@ XXX dumbass-news_test.go
 
 ## Future directions
 
-XXX
+Aside from improvements to functionality, the following work could usefully be done just to improve the clarity of the code:
+
+* `server.go` feels a bit too broad in its responsibilities, and might usefully be broken up. For example, HTML generation might be better handled by its own source file.
+* The `httpError` structure is not necessary. In `server.go,` the `getData` function should simply return an (entries, httpStatus, err) triple instead of an (entries, httpError) pair.
+* See other plans in [the GitHub issue tracker](https://github.com/MikeTaylor/dumbass-news/issues).
 
 
