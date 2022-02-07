@@ -36,7 +36,7 @@ This package provides a single object, `Logger`, via the exported `MakeLogger` f
 
 ### Configuration
 
-`config.go` defines the configuration structure and the JSON file format that is used to load it, and provides the `readConfig` function used by the main routine. The configuration file format is described in [the top-level README](../README.md).
+`config.go` defines the configuration structure and the JSON file format that is used to load it, and provides the `readConfig` function used by the main routine. The configuration file format [is described separately](config.md).
 
 
 ### Server
