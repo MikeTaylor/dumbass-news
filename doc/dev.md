@@ -48,20 +48,23 @@ This package provides a single object, `Logger`, via the exported `MakeLogger` f
 
 ### Entry parsing
 
-XXX entry.go
-XXX entry-rss.go
+`entry.go` defines the `Entry` structure, consisting of a headline and link (such as might be extracted from an RSS feed), and the EntryParser strcture -- a structure of a single method, `parse`. The idea is that many kinds of entry parser may be supported, each with its own parser implemented in a source file called `entry-*.go` which provides a single entry-parser object.
+
+`entry-rss.go` is, at present, the only entry parser. As the name suggests, it parses an RSS document and returns a slice of entries.
 
 
 ### Transformation
 
-XXX transformer.go
-XXX transformer-disemvowel.go
-XXX transformer-insert.go
+`transformer.go` defines the `Transformer` structure -- a structure of a single method. `transform`. The idea is that many kinds of transformer may be supported, each implemented in a source file called `transformer-*.go` which provides a single transformer object. This source file also defined the `transformData` function which chooses which of the supported transformers to use and applies it to each of the entries in the supplied list.
+
+`transformer-disemvowel.go` is the first and simplest transformer, written as a proof of concept, which simply removes all vowels from the headlines it is given.
+
+`transformer-insert.go` is a transformer which inserts a specfied word (such as "dumbass" )into headlines before a word matching one in a specified list (such as a list of nouns that are not also verbs).
 
 
 ### Tests
 
-XXX dumbass-news_test.go
+`dumbass-news_test.go` is a very high-level test which launches a server and checks that it returns appropriate responses for a variety of HTTP requests, both invalid and valid.
 
 
 
@@ -70,7 +73,9 @@ XXX dumbass-news_test.go
 Aside from improvements to functionality, the following work could usefully be done just to improve the clarity of the code:
 
 * `server.go` feels a bit too broad in its responsibilities, and might usefully be broken up. For example, HTML generation might be better handled by its own source file.
+* `entry.go` should provide a `parseData` function, analogous to `transformer.go`'s `transformData` function, which selects which of the candidate entry-parsers to use. This will move some more non-server-related code out of `server.go`.
 * The `httpError` structure is not necessary. In `server.go,` the `getData` function should simply return an (entries, httpStatus, err) triple instead of an (entries, httpError) pair.
 * See other plans in [the GitHub issue tracker](https://github.com/MikeTaylor/dumbass-news/issues).
+
 
 
