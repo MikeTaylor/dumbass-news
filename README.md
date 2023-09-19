@@ -11,7 +11,7 @@ This program runs a web server which harvests news headlines from various source
 * PM warned about dumbass lockdown drinks, claims Cummings
 * Ministers suffer defeats in Lords over dumbass crime bill
 * French far-right candidate guilty of dumbass hate speech
-* Woman completes dumbass bis to run length of New Zealand.
+* Woman completes dumbass bid to run length of New Zealand.
 
 This is in part a response to how incredibly stupid nearly every news story seems to be at the moment (17 January 2022).
 
